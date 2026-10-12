@@ -1,0 +1,173 @@
+# Digitizing parameters. Every value is documented in PARAMS.md (default, range,
+# reason, source). Override per run with --params FILE or --set key.path=value.
+# Units are millimetres unless the key says otherwise.
+
+machine:
+  hoops_mm:                 # name: [width, height] as you read the hoop label
+    "280x200": [280, 200]
+    "200x200": [200, 200]
+    "140x140": [140, 140]
+  default_hoop: "280x200"
+  hoop_clearance_mm: 10     # keep this far from the hoop edge
+  max_stitch_mm: 12.1       # Tajima DST limit, hard fail above
+  max_speed_spm: 860
+  estimate_speed_spm: 600   # used for time estimates
+  thread_change_minutes: 2.0
+  trims_at_color_change: true
+  trims_on_jump: false      # never rely on in-colour jump trims
+  trim_jump_threshold_mm: 3.0   # moves up to this are sewn as a stitch; longer in-colour moves travel or trim
+
+general:
+  min_stitch_length_mm: 0.3     # shorter stitches are merged (lock stitches exempt)
+  lock_stitch:
+    style: half_stitch          # half_stitch | back_forth
+    length_mm: 0.7
+  overlap_mm: 0.4               # lower colour kept under an upper colour by this much
+  simplify_tolerance_mm: 0.1
+  sliver_area_mm2: 1.0          # smaller regions are dropped and listed
+  min_feature_width_mm: 1.5     # thinner features are flagged
+
+fill:
+  row_spacing_mm: 0.40
+  under_layer_row_spacing_mm: 0.50   # for a fill that sits under another layer
+  max_stitch_length_mm: 3.8
+  min_row_end_stitch_mm: 1.0
+  staggers: 4
+  angle_deg: 45
+  adjacent_angle_offset_deg: 30
+  skip_last: true
+  pull_compensation_mm: 0.25         # each end of every row, along the stitch direction
+  underlay:
+    enabled: true
+    angle_offset_deg: 90
+    row_spacing_factor: 3            # underlay spacing = factor x row_spacing_mm
+    max_stitch_length_mm: 3.8
+    inset_mm: 0.5
+    layers: 1                        # 2 = double tatami underlay (pique)
+    edge_run_min_size_mm: 15         # shapes at least this big also get an edge run
+    edge_run_inset_mm: 0.5
+    edge_run_stitch_length_mm: 2.5
+    edge_run_always: false           # true on knits, terry, fleece
+  travel_stitch_length_mm: 2.0
+
+satin:
+  spacing_mm: 0.40
+  min_width_mm: 1.5
+  max_width_mm: 7.0                  # wider satins get split stitches
+  split_stitch_length_mm: 7.0
+  convert_to_fill_width_mm: 10.0     # wider satins become tatami fill
+  pull_compensation_mm: 0.2          # each side
+  underlay:
+    strength: normal                 # normal | strong (one step up) | double (pique)
+    none_below_mm: 2.0
+    center_walk_below_mm: 4.0
+    contour_below_mm: 7.0
+    center_walk_stitch_length_mm: 2.0
+    contour_inset_mm: 0.4
+    contour_stitch_length_mm: 2.5
+    zigzag_spacing_mm: 3.0
+    zigzag_inset_mm: 0.2
+  short_stitch_inset_percent: 15
+
+running:
+  stitch_length_mm: 2.2
+  curve_stitch_length_mm: 1.5
+  tolerance_mm: 0.15
+  min_stitch_length_mm: 0.5
+  bean_repeats: 1                    # 1 = triple (bean) run
+  bean_min_stroke_width_mm: 0.6      # lines at least this wide are bean stitched
+
+detail:
+  min_text_height_mm: 5.0
+  thin_feature_mm: 1.5
+  thin_feature_action: running       # warn | thicken | running
+
+sequence:
+  within_color: center_out
+  end_near_next_start: true
+  travel_under_cover: true
+  max_travel_mm: 25                  # longer in-colour moves lock off and trim
+
+colors:
+  merge_threshold_de: 8
+  refuse_merge_de: 25
+  palettes:
+    - "InkStitch Madeira Polyneon"
+    - "InkStitch Isacord Polyester"
+    - "InkStitch Robison-Anton Polyester"
+  background_coverage: 0.9
+
+preview:
+  thread_width_mm: 0.4
+  render_dpi: 300
+  density_cell_mm: 1.0
+  density_hotspot_per_mm2: 8   # about three stacked satin/fill layers
+  fabric_color: "#d9d4c7"
+
+# Fabric presets: `overrides` are dotted keys applied over the values above.
+fabrics:
+  woven:
+    label: "Woven (twill, canvas, denim)"
+    overrides: {}
+    stabilizer: "One layer of medium-weight tear-away under the fabric (two layers on light cotton or linen). Heavy canvas or denim is stable enough on its own with one layer."
+    needle: "75/11 embroidery needle (sharp point); 90/14 on heavy canvas or denim."
+    bobbin: "60 wt pre-wound bobbin, white (black if the back will show on a dark garment)."
+    topping: "None needed."
+    hooping: "Hoop the fabric with the stabilizer underneath. Drum-tight, grain straight."
+  knit:
+    label: "Knit (T-shirts, jersey)"
+    overrides:
+      fill.row_spacing_mm: 0.45
+      fill.pull_compensation_mm: 0.35
+      satin.pull_compensation_mm: 0.30
+      fill.underlay.edge_run_min_size_mm: 10
+      fill.underlay.edge_run_always: true
+      satin.underlay.strength: strong
+    stabilizer: "Medium-weight cut-away under the fabric (never tear-away on knits: the design will sag after washing). Add a light fusible no-show mesh if the knit is very stretchy."
+    needle: "75/11 ballpoint (jersey) embroidery needle."
+    bobbin: "60 wt pre-wound bobbin."
+    topping: "None needed unless the knit is textured."
+    hooping: "Do not stretch the knit when hooping: smooth it flat, then tighten the hoop. A stretched knit springs back and puckers around the stitches."
+  pique:
+    label: "Pique (polo shirts)"
+    overrides:
+      fill.row_spacing_mm: 0.36
+      fill.pull_compensation_mm: 0.24
+      satin.pull_compensation_mm: 0.24
+      fill.underlay.layers: 2
+      satin.underlay.strength: double
+    stabilizer: "Medium or heavy cut-away under the fabric. Pique has a waffle texture that swallows stitches, so underlay is doubled."
+    needle: "75/11 ballpoint embroidery needle."
+    bobbin: "60 wt pre-wound bobbin."
+    topping: "A water-soluble topping on top helps keep the satin edges crisp on the waffle texture."
+    hooping: "Hoop without stretching; the pique rib should run straight."
+  terry:
+    label: "Terry (towels)"
+    overrides:
+      fill.pull_compensation_mm: 0.30
+      satin.pull_compensation_mm: 0.25
+      satin.min_width_mm: 2.0
+      fill.underlay.edge_run_always: true
+    stabilizer: "Medium tear-away or cut-away under the towel, plus a water-soluble topping on top so stitches do not sink into the loops. Use --knockdown to add a low-density knockdown layer under the design."
+    needle: "75/11 or 90/14 embroidery needle."
+    bobbin: "60 wt pre-wound bobbin."
+    topping: "Water-soluble topping on top, pinned or floated under the hoop clamp."
+    hooping: "Towels are thick: use the largest hoop that fits and hoop the stabilizer with the towel. Float the towel with spray adhesive if the hoop will not close."
+  fleece:
+    label: "Fleece"
+    overrides:
+      fill.pull_compensation_mm: 0.30
+      satin.pull_compensation_mm: 0.25
+      satin.min_width_mm: 2.0
+      fill.underlay.edge_run_always: true
+    stabilizer: "Medium cut-away under the fleece plus a water-soluble topping on top. Use --knockdown to add a knockdown layer under the design."
+    needle: "75/11 ballpoint embroidery needle."
+    bobbin: "60 wt pre-wound bobbin."
+    topping: "Water-soluble topping on top."
+    hooping: "Do not stretch the fleece; float it on hooped stabilizer with temporary spray adhesive if it is too thick to hoop."
+
+knockdown:
+  enabled: false
+  row_spacing_mm: 1.0
+  max_stitch_length_mm: 3.0
+  expand_mm: 1.0

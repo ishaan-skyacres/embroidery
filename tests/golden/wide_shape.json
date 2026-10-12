@@ -1,0 +1,36 @@
+{
+ "order": [
+  "red",
+  "blue",
+  "dark grey"
+ ],
+ "counts": [
+  1103,
+  315,
+  71
+ ],
+ "groups": [
+  [
+   "blue",
+   [
+    "#3060c0"
+   ],
+   false
+  ],
+  [
+   "dark grey",
+   [
+    "#303030"
+   ],
+   false
+  ],
+  [
+   "red",
+   [
+    "#c03030"
+   ],
+   false
+  ]
+ ],
+ "validation_ok": true
+}

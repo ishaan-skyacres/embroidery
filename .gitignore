@@ -1,0 +1,9 @@
+.venv/
+.venv-inkstitch/
+__pycache__/
+*.pyc
+*.egg-info/
+out/
+out_*/
+tests/golden/*.tmp
+.pytest_cache/

@@ -1,0 +1,27 @@
+{
+ "order": [
+  "light blue",
+  "black"
+ ],
+ "counts": [
+  1848,
+  198
+ ],
+ "groups": [
+  [
+   "black",
+   [
+    "#202020"
+   ],
+   false
+  ],
+  [
+   "light blue",
+   [
+    "#80c0ff"
+   ],
+   false
+  ]
+ ],
+ "validation_ok": true
+}

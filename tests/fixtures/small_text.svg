@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 40">
+  <rect x="5" y="5" width="90" height="30" fill="#f0e0c0"/>
+  <text x="10" y="28" font-family="DejaVu Sans" font-size="6" fill="#102040">Small text</text>
+</svg>

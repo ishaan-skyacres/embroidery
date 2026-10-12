@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <circle cx="45" cy="50" r="35" fill="#2060d0"/>
+  <rect x="60" y="30" width="50" height="40" fill="#e02020"/>
+  <path d="M 105 50 a 20 20 0 1 0 -40 0 a 20 20 0 1 0 40 0 z M 97 50 a 12 12 0 1 1 -24 0 a 12 12 0 1 1 24 0 z" fill="#ffd700" fill-rule="evenodd"/>
+  <polygon points="20,85 45,20 70,85" fill="#2e8b2e"/>
+  <circle cx="45" cy="50" r="35" fill="none" stroke="#000000" stroke-width="0.6"/>
+  <rect x="8" y="8" width="104" height="3" fill="#000000"/>
+</svg>

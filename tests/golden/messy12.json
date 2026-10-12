@@ -1,0 +1,68 @@
+{
+ "order": [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "black"
+ ],
+ "counts": [
+  722,
+  538,
+  361,
+  361,
+  184
+ ],
+ "groups": [
+  [
+   "background",
+   [
+    "#f4f1ea"
+   ],
+   true
+  ],
+  [
+   "black",
+   [
+    "#101010"
+   ],
+   false
+  ],
+  [
+   "blue",
+   [
+    "#1f5ecf",
+    "#2060d0",
+    "#2262d2"
+   ],
+   false
+  ],
+  [
+   "green",
+   [
+    "#2e8b2e",
+    "#308d30"
+   ],
+   false
+  ],
+  [
+   "red",
+   [
+    "#dd1f22",
+    "#e02020",
+    "#e22424",
+    "#e42626"
+   ],
+   false
+  ],
+  [
+   "yellow",
+   [
+    "#fdd503",
+    "#ffd700"
+   ],
+   false
+  ]
+ ],
+ "validation_ok": true
+}

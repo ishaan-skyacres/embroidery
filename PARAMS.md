@@ -121,7 +121,7 @@ Sources (referenced by tag below):
 | `under_layer_row_spacing_mm` | 0.50 | 0.45 to 0.60 | A fill that sits under another layer, or on lofty or stretchy fabric, is opened up to reduce bulk and distortion. | you, [W-DENS] |
 | `max_stitch_length_mm` | 3.8 | 3.0 to 4.0 | Ink/Stitch default 4.0 mm; Wilcom's common tatami length is 4 mm; 3.8 keeps a margin below 4 and well below the 12.1 mm DST cap. **verified range** | [IS-FILL], [W-DENS] |
 | `min_row_end_stitch_mm` | 1.0 | 0.5 to 1.5 | Row-end stitches shorter than this are merged so edges don't pile up. | [IS-FILL] |
-| `staggers` | 4 | 2 to 6 | Rows are offset so needle penetrations do not line up into visible lines. Ink/Stitch default 4. **verified** | [IS-FILL] |
+| `staggers` | 4 | 2 to 6 | Rows are offset so needle penetrations do not line up into visible lines. Ink/Stitch default 4. With 3 or more staggers the tool uses a golden-ratio offset sequence (each row shifts by 0.618 of the stitch length) instead of an integer cycle, because an integer cycle lines the holes up into straight diagonals (Ink/Stitch notes that fractional staggers show fewer diagonals). **verified** | [IS-FILL] |
 | `angle_deg` | 45 | 0 to 179 | Diagonal fills cut across both warp and weft on a woven, which spreads pull in both directions. | you, [EMB-OBJ] |
 | `adjacent_angle_offset_deg` | 30 | 20 to 90 | Adjacent fills with the same angle interleave and give a jagged shared edge; the tool assigns neighbouring regions angles at least this far apart. **verified direction** | [STERA], [W-ANGLE] |
 | `skip_last` | true | bool | Skip the last stitch of each row: the first stitch of the next row lands there anyway. Cuts stitch count and edge build-up. **verified** | [IS-FILL] |
@@ -166,7 +166,7 @@ Sources (referenced by tag below):
 | `tolerance_mm` | 0.15 | 0.1 to 0.2 | Maximum deviation from the path (Ink/Stitch default 0.2). | [IS-STROKE] |
 | `min_stitch_length_mm` | 0.5 | 0.3 to 0.8 | Absolute minimum for running stitches (tighter than the global minimum). | you |
 | `bean_repeats` | 1 | 0 to 2 | Bean (triple) run: each stitch goes forward, back, forward. Used for bold single-line outlines. Ink/Stitch `bean_stitch_repeats=1` means triple. **verified** | [IS-STROKE] |
-| `bean_min_stroke_width_mm` | 0.8 | 0.6 to 1.2 | Lines drawn at least this wide (but under the satin minimum) are rendered as bean stitch; thinner lines as a single run. | you |
+| `bean_min_stroke_width_mm` | 0.6 | 0.4 to 1.2 | Lines drawn at least this wide (but under the satin minimum) are rendered as bean stitch so they read as bold as the art; thinner lines (hairlines, leaf veins) as a single run. | you |
 
 ## 6. Text and fine detail (`detail:`)
 
@@ -221,7 +221,7 @@ double zigzag underlay where column width allows. **verified direction**
 | `thread_width_mm` | 0.4 | 0.3 to 0.5 | Visual width of a 40 wt polyester thread. | [W-BLOG-SP] |
 | `render_dpi` | 300 | 150 to 600 | Realistic preview resolution. | you |
 | `density_cell_mm` | 1.0 | 0.5 to 2 | Cell size for the penetrations-per-mm2 heat map. | you |
-| `density_hotspot_layers` | 3 | 2 to 4 | Cells with more than about 3 stacked layers are flagged (thread-break risk). Converted to penetrations per mm2 using the fill density: one layer at 0.4 mm spacing and 3.8 mm stitches is about 0.66 penetrations per mm2 plus underlay, so 3 layers is about 2.5 per mm2. | you |
+| `density_hotspot_per_mm2` | 8 | 5 to 12 | Cells with more needle penetrations per mm2 than this are flagged (thread-break and bird-nest risk). One tatami layer with underlay is about 0.9 penetrations per mm2; a satin edge cell is about 2.5 to 3; three stacked satin layers reach about 8. | you |
 
 ## 11. Disagreements noted
 

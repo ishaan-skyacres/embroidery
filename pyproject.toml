@@ -1,0 +1,40 @@
+[project]
+name = "digitizer"
+version = "0.1.0"
+description = "Open-source vector-to-embroidery digitizer for the Poolin EOC06 (Tajima DST)"
+requires-python = ">=3.11"
+license = { text = "GPL-3.0-or-later" }
+dependencies = [
+  "shapely>=2.0",
+  "svgelements>=1.9",
+  "pyembroidery>=1.5",
+  "numpy",
+  "pillow",
+  "pyyaml",
+  "reportlab",
+  "cairosvg",
+  "click",
+  "lxml",
+  "scipy",
+  "scikit-image",
+  "networkx",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+digitize = "digitizer.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["digitizer*"]
+
+[tool.setuptools.package-data]
+digitizer = ["palettes/*.gpl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
