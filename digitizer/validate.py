@@ -137,8 +137,9 @@ def validate(plan: StitchPlan, dst_path: Path, layout: Layout, params: Params,
     res.min_len = float(L[~lockmask].min()) if len(L) and (~lockmask).any() else 0.0
     res.max_len = float(L.max()) if len(L) else 0.0
     res.long_count = int((L > max_stitch + 1e-6).sum())
-    # lock stitches are exempt; after rounding to 0.1 mm a 0.3 mm stitch can measure 0.28 mm
-    res.short_count = int(((L < min_stitch - 0.06) & ~lockmask).sum())
+    # lock stitches are exempt. Both ends of a stitch are rounded to the 0.1 mm DST grid, so a
+    # 0.30 mm stitch can measure as little as 0.30 - 0.1 * sqrt(2) = 0.16 mm after rounding.
+    res.short_count = int(((L < min_stitch - 0.15) & ~lockmask).sum())
     if not plan_has_locks:
         res.warnings.append("lock stitches could not be identified exactly in this DST (engine without lock flags); "
                             "short stitches within 6 stitches of a jump or colour change were treated as locks")
@@ -149,7 +150,7 @@ def validate(plan: StitchPlan, dst_path: Path, layout: Layout, params: Params,
     if res.short_count:
         res.errors.append(f"{res.short_count} stitch(es) shorter than {min_stitch} mm that are not lock stitches (min {res.min_len:.2f} mm)")
     else:
-        res.checks.append(f"shortest non-lock stitch {res.min_len:.2f} mm (>= {min_stitch} mm after 0.1 mm rounding)")
+        res.checks.append(f"shortest non-lock stitch {res.min_len:.2f} mm (>= {min_stitch} mm before rounding to the 0.1 mm DST grid)")
 
     # counts agree everywhere
     plan_counts = [b.stitch_count() for b in plan.blocks]

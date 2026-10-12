@@ -19,6 +19,7 @@ What you get in `out/`:
 | `preview_per_color/` | one PNG per colour stop, in sewing order, jumps dashed |
 | `simulator.html` | offline sewing-order animation: play/pause, speed, scrub, stop and stitch counter |
 | `density_map.png` | needle penetrations per mm2, hot spots outlined |
+| `coverage_gaps.png` | artwork of each colour that its stitches do not cover (magenta), with the biggest gaps circled |
 | `thread_sheet.md` / `.pdf` | stop number, swatch, hex, group, suggested thread, stitches, minutes |
 | `procedure.md` / `.html` / `.pdf` | the stitching procedure (setup, hooping, run sheet, finishing, troubleshooting, test checklist); the HTML has a checkbox per step |
 | `report.md` | size, hoop fit, counts, times, stitch-length limits, conversions, dropped slivers, warnings, validation |

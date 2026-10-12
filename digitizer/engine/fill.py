@@ -11,7 +11,7 @@ from shapely.geometry import LineString, MultiLineString, Point, Polygon
 from shapely.prepared import prep
 
 from .. import geometry as G
-from ..stitchplan import STITCH, Stitch
+from ..stitchplan import JUMP, STITCH, Stitch
 from .running import running_stitches
 
 
@@ -113,7 +113,8 @@ def _stitch_section(sec: Section, top_down: bool, start_left: bool, max_len: flo
 
 def tatami_fill(poly: Polygon, angle_deg: float, spacing: float, max_len: float, staggers: int, skip_last: bool,
                 pull: float, min_end: float, start: tuple[float, float] | None, travel_len: float,
-                trim_threshold: float, underlay: bool = False) -> tuple[list[Stitch], list[str]]:
+                trim_threshold: float, underlay: bool = False, underpath: bool = True,
+                lock_len: float = 0.7) -> tuple[list[Stitch], list[str]]:
     """Fill one polygon. Returns stitches (travel runs flagged) and notes."""
     notes: list[str] = []
     c = poly.centroid
@@ -134,6 +135,7 @@ def tatami_fill(poly: Polygon, angle_deg: float, spacing: float, max_len: float,
         hint = np.array([sp.x, sp.y])
     remaining = list(sections)
     travel_total = 0.0
+    jumps = 0
     while remaining:
         # pick the section and orientation whose start is nearest
         best = None
@@ -155,15 +157,28 @@ def tatami_fill(poly: Polygon, angle_deg: float, spacing: float, max_len: float,
         if cur is not None:
             d = float(np.hypot(entry[0] - cur[0], entry[1] - cur[1]))
             if d > trim_threshold:
-                path = _travel_path(prepared, rot, inset_ring, tuple(cur), entry)
-                travel_total += G.line_length(path)
-                stitches.extend(running_stitches(path, travel_len, travel_len, 0.1, 0.3, 0, include_start=False,
-                                                 travel=True, underlay=underlay))
+                if underpath:
+                    path = _travel_path(prepared, rot, inset_ring, tuple(cur), entry)
+                    travel_total += G.line_length(path)
+                    stitches.extend(running_stitches(path, travel_len, travel_len, 0.1, 0.3, 0, include_start=False,
+                                                     travel=True, underlay=underlay))
+                else:
+                    # no underpath: lock off, jump to the next section, lock in
+                    from .locks import tie_in, tie_off
+                    prev_pts = [st for st in stitches if st.cmd == STITCH][-2:]
+                    if len(prev_pts) == 2:
+                        stitches.extend(tie_off(prev_pts[0].xy(), prev_pts[1].xy(), lock_len))
+                    stitches.append(Stitch(entry[0], entry[1], JUMP))
+                    heading = pts[1] if len(pts) > 1 else pts[0]
+                    stitches.extend(tie_in(entry, heading, lock_len))
+                    jumps += 1
         for x, y in pts:
             stitches.append(Stitch(x, y, STITCH, underlay=underlay))
         cur = np.array(pts[-1])
     if travel_total > 0:
         notes.append(f"{travel_total:.0f} mm of travel runs inside the fill")
+    if jumps:
+        notes.append(f"{jumps} jump(s) between fill sections (underpath off)")
     # rotate back
     out = []
     ca, sa = math.cos(math.radians(angle_deg)), math.sin(math.radians(angle_deg))

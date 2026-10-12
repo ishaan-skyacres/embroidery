@@ -136,7 +136,9 @@ Sources (referenced by tag below):
 | `underlay.edge_run_stitch_length_mm` | 2.5 | 2 to 3 | Standard running-stitch length. | [IS-STROKE] |
 | `underlay.edge_run_always` | false | bool | Fabric presets for knits, terry and fleece set this so every fill gets an edge run regardless of size (stretch and pile need the edge firmed up). | [W-FAB], [IMPR] |
 | `underlay.layers` | 1 | 1 to 2 | 2 adds a second tatami underlay layer at the fill angle (double tatami underlay) as recommended for pique. | [IMPR], [W-FAB] |
+| `underpath` | true | bool | Travel between the sections of a fill as a running stitch inside the shape (Ink/Stitch's "underpath"), covered by rows stitched afterwards. With `false` the machine locks off and jumps between sections instead (more jumps, no hidden travel). Ink/Stitch default true. **verified** | [IS-FILL] |
 | `travel_stitch_length_mm` | 2.0 | 1.5 to 2.5 | Travel runs inside a fill are short so tension pulls them into the fabric and the top layer hides them. | [LINDEE] |
+| `underlay.skip_last` | false | bool | Skip the last stitch of each underlay row (Ink/Stitch `fill_underlay_skip_last`). Off by default: the underlay is sparse already. **verified** | [IS-FILL] |
 
 ## 4. Satin column (`satin:`)
 
@@ -178,6 +180,7 @@ Sources (referenced by tag below):
 |---|---|---|---|---|
 | `min_text_height_mm` | 5.0 | 4 to 6 | Satin lettering fills in below about 5 mm (caps) or 6.2 mm (mixed case). **verified** | [IGN], [GPRO] |
 | `thin_feature_mm` | 1.5 | 1 to 2 | Same as `general.min_feature_width_mm`; features thinner than this are flagged. | [GPRO] |
+| `thicken_above_mm` | 1.0 | 0.6 to 1.4 | Thin features at least this wide (but under `thin_feature_mm`) are widened to the minimum satin width and stitched as satin instead of being reduced to a line: a 1.2 mm rim or stem reads as unstitched when it becomes a single running stitch. Narrower features keep the `thin_feature_action`. **conservative choice** (from the sample design) | you |
 | `thin_feature_action` | `running` | `warn`, `thicken`, `running` | What to do with a thin feature: warn only, thicken to the minimum, or stitch it as a running/bean line down its centre. Default renders it as a line so nothing is silently lost. | you |
 
 ## 7. Sequencing and pathing (`sequence:`)
@@ -189,6 +192,8 @@ Sources (referenced by tag below):
 | `end_near_next_start` | true | bool | Each block ends near the next block's start so the first stitch after a thread change is short. | you |
 | `travel_under_cover` | true | bool | Travel inside a colour is a short running stitch routed through regions of the same colour that are not yet stitched, so later stitching covers it. | [LINDEE], [COLDESI] |
 | `max_travel_mm` | 25 | 10 to 50 | Longer in-colour moves lock off and trim instead of travelling. | you |
+| `trim_after_object` | false | bool | Lock off and trim after every object, like Ink/Stitch's per-object "trim after". Off: the tool only trims when a jump is longer than `max_travel_mm`, because the EOC06 does not trim inside a colour and every trim command is still a thread end to deal with. | [IS-PARAMS] |
+| `trim_before_color_change` | true | bool | Emit an explicit trim before each colour change (the EOC06 trims there on its own; the command keeps the file correct on machines that need it). | [IS-PARAMS] |
 | `within_color` fills | centre out | fixed | Fill objects of a colour are stitched from the design centre outward (largest first on ties); satins and lines follow nearest-neighbour from there. | you |
 
 ## 8. Fabric presets (`fabrics:`)
@@ -236,6 +241,8 @@ double zigzag underlay where column width allows. **verified direction**
 | `render_dpi` | 300 | 150 to 600 | Realistic preview resolution. | you |
 | `fabric_color` | #d9d4c7 | any hex | Background colour of the previews (a neutral natural cotton); `--fabric-color` is a separate option that marks artwork colours as background to skip. | you |
 | `density_cell_mm` | 1.0 | 0.5 to 2 | Cell size for the penetrations-per-mm2 heat map. | you |
+| `coverage_warn_percent` | 2.0 | 0.5 to 5 | After stitching, each colour's artwork is rasterised and compared with its stitches drawn at thread width; a colour with more than this share uncovered raises a warning (`coverage_gaps.png` shows where). | you |
+| `coverage_gap_mm2` | 1.0 | 0.5 to 5 | Uncovered patches at least this big are listed in the report with position and width. | you |
 | `density_hotspot_per_mm2` | 8 | 5 to 12 | Cells with more needle penetrations per mm2 than this are flagged (thread-break and bird-nest risk). One tatami layer with underlay is about 0.9 penetrations per mm2; a satin edge cell is about 2.5 to 3; three stacked satin layers reach about 8. | you |
 
 ## 11. Disagreements noted

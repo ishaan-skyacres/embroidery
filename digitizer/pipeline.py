@@ -12,6 +12,7 @@ import pyembroidery as pe
 from . import colors as C
 from . import preview as P
 from .classify import assign_fill_angles, classify_region
+from .coverage import check_coverage
 from .engine.engine import build_plan, describe_parts, order_parts, watch_items
 from .engine_inkstitch import find_inkstitch, plan_from_inkstitch_dst, run_inkstitch, write_inkstitch_svg
 from .layering import build_regions, compute_layout
@@ -312,13 +313,23 @@ def run(opts: RunOptions) -> RunResult:
         P.render_realistic(plan, params, per / f"{i + 1:02d}_{b.group.replace(' ', '_')}.png", only_block=i, dim_others=True,
                            ppm=float(params["preview.render_dpi"]) / 25.4 * 0.6, jumps=True)
     density = P.render_density(plan, params, out / "density_map.png")
+    coverage = check_coverage(plan, layout, float(params["preview.thread_width_mm"]), out / "coverage_gaps.png",
+                              min_gap_mm2=float(params.get("preview.coverage_gap_mm2", 1.0)))
+    warn_pct = float(params.get("preview.coverage_warn_percent", 2.0))
+    for region in layout.regions:
+        frac = coverage.fraction(region.name) * 100
+        if frac > warn_pct:
+            res.warnings.append(f"{region.name}: {frac:.1f}% of its artwork ({coverage.uncovered_mm2[region.name]:.0f} mm2) has no "
+                                f"stitches; see coverage_gaps.png and the Coverage section of report.md")
+    _say(opts, "Coverage: " + ", ".join(f"{r.name} {100 - coverage.fraction(r.name) * 100:.1f}%" for r in layout.regions)
+         + (f"; {len(coverage.gaps)} gap(s) over {params.get('preview.coverage_gap_mm2', 1.0)} mm2" if coverage.gaps else ""))
     write_simulator(plan, out / "simulator.html", title)
     thumbs = []
     for i, b in enumerate(plan.blocks):
         rel = f"procedure_thumbs/stop_{i + 1:02d}.png"
         P.thumbnail_for_block(plan, params, i, out / rel)
         thumbs.append(rel)
-    res.files += ["preview_realistic.png", "preview_vs_art.png", "preview_per_color/", "density_map.png", "simulator.html"]
+    res.files += ["preview_realistic.png", "preview_vs_art.png", "preview_per_color/", "density_map.png", "coverage_gaps.png", "simulator.html"]
 
     # ---- 8. documents -----------------------------------------------------
     rows = thread_rows(plan, params)
@@ -339,6 +350,7 @@ def run(opts: RunOptions) -> RunResult:
     val = validate(plan, out / "design.dst", layout, params, [r["stitches"] for r in rows], run_sheet_counts, plan.stitch_count())
     res.validation = val
     ctx = {"plan": plan, "layout": layout, "params": params, "groups": groups, "parts": parts_by_group, "log": log,
+           "coverage": coverage,
            "warnings": res.warnings, "density": density, "title": title, "input": str(opts.input), "size_mm": opts.size_mm,
            "engine_note": engine_note, "validation": val, "files": res.files, "grouping_log": grouping_log}
     write_report(out / "report.md", ctx)

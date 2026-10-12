@@ -43,6 +43,9 @@ class BlockBuilder:
         self.lock_style = params["general.lock_stitch.style"]
         self.min_len = float(params["general.min_stitch_length_mm"])
         self.max_len = float(params["machine.max_stitch_mm"])
+        self.trim_after_object = bool(params.get("sequence.trim_after_object", False))
+        self.trim_before_color_change = bool(params.get("sequence.trim_before_color_change", True))
+        self.underpath = bool(params.get("fill.underpath", True))
         self.stitches: list[Stitch] = []
         self.cur: tuple[float, float] | None = None
         self.prev: tuple[float, float] | None = None
@@ -66,7 +69,7 @@ class BlockBuilder:
         d = math.hypot(target[0] - self.cur[0], target[1] - self.cur[1])
         if d <= self.trim_threshold:
             return "stitch"
-        if self.travel_under_cover and d <= self.max_travel and cover is not None:
+        if self.travel_under_cover and d <= self.max_travel and cover is not None and not self.trim_after_object:
             line = LineString([self.cur, target])
             if cover.covers(line):
                 self.stitches.extend(running_stitches(np.asarray([self.cur, target]), self.travel_len, self.travel_len,
@@ -76,7 +79,7 @@ class BlockBuilder:
         prev, last = self._last_two()
         if last is not None:
             self.stitches.extend(tie_off(prev, last, self.lock_len, self.lock_style))
-        if d > self.max_travel:
+        if d > self.max_travel or self.trim_after_object:
             self.stitches.append(Stitch(last[0] if last else self.cur[0], last[1] if last else self.cur[1], TRIM))
         self.stitches.append(Stitch(target[0], target[1], JUMP))
         self.jumps.append((self.cur, target, d))
@@ -97,6 +100,8 @@ class BlockBuilder:
         prev, last = self._last_two()
         if last is not None:
             self.stitches.extend(tie_off(prev, last, self.lock_len, self.lock_style))
+            if self.trim_before_color_change:
+                self.stitches.append(Stitch(last[0], last[1], TRIM))
         out = enforce_min_length(self.stitches, self.min_len)
         out = split_long(out, self.max_len)
         return out
@@ -148,8 +153,9 @@ def stitch_fill_part(part: Part, builder: BlockBuilder, params: Params, cover, n
                     if sp.area < 1.0:
                         continue
                     st, _ = F.tatami_fill(sp, ua, fp["spacing"] * float(u["row_spacing_factor"]), float(u["max_stitch_length_mm"]),
-                                          2, False, 0.0, 0.5, builder.cur, builder.travel_len, builder.trim_threshold,
-                                          underlay=True)
+                                          2, bool(u.get("skip_last", False)), 0.0, 0.5, builder.cur, builder.travel_len,
+                                          builder.trim_threshold, underlay=True, underpath=builder.underpath,
+                                          lock_len=builder.lock_len)
                     if not st:
                         continue
                     st = [s for s in st if s.cmd == STITCH]
@@ -174,7 +180,8 @@ def stitch_fill_part(part: Part, builder: BlockBuilder, params: Params, cover, n
                     objs.append(StitchObject("underlay", "edge-run underlay", st, {"how": how}))
         # ---- top fill
         st, fnotes = F.tatami_fill(poly, angle, fp["spacing"], fp["max_len"], fp["staggers"], fp["skip_last"], fp["pull"],
-                                   fp["min_end"], builder.cur, builder.travel_len, builder.trim_threshold)
+                                   fp["min_end"], builder.cur, builder.travel_len, builder.trim_threshold,
+                                   underpath=builder.underpath, lock_len=builder.lock_len)
         notes.extend(fnotes)
         if not st:
             continue
@@ -405,8 +412,11 @@ def build_plan(layout: Layout, parts_by_group: dict[str, list[Part]], params: Pa
             block.objects.extend(objs)
             cx, cy = part.center()
             part.notes.append(f"at {location_words(cx, cy, W, H)}")
+        patched = patch_gaps(region, builder, block, params, log)
         block.stitches = builder.finish()
         block.descriptions.extend(describe_parts(ordered, W, H))
+        if patched:
+            block.descriptions.append(f"{patched} small patch(es) filling spots the main objects left uncovered")
         block.watch.extend(watch_items(ordered, builder))
         if builder.jumps:
             block.watch.append(f"{len(builder.jumps)} jump(s) inside this colour: trim the floating threads by hand at the stop "
@@ -455,3 +465,91 @@ def watch_items(parts: list[Part], builder: BlockBuilder) -> list[str]:
     if any(p.kind == "running" for p in parts):
         out.append("Outline lines: check they line up with the fills already stitched (registration). If they drift, the fabric slipped in the hoop.")
     return out
+
+
+def patch_gaps(region, builder: BlockBuilder, block: ColorBlock, params: Params, log: list[str]) -> int:
+    """Fill any part of the colour's region that the objects stitched so far left uncovered.
+
+    The region and the block's stitches are rasterised at 0.1 mm; uncovered patches at least
+    `preview.coverage_gap_mm2` big and wider than a thread are stitched as small satin-style fills.
+    """
+    from PIL import Image, ImageDraw
+    from scipy import ndimage
+    from skimage.measure import find_contours
+    from shapely.geometry import Polygon
+    from shapely.validation import make_valid
+
+    if region.region.is_empty:
+        return 0
+    min_gap = float(params.get("preview.coverage_gap_mm2", 1.0))
+    thread_w = float(params["preview.thread_width_mm"])
+    ppm = 10.0
+    x0, y0, x1, y1 = region.region.bounds
+    pad = 2.0
+    Wp = int((x1 - x0 + 2 * pad) * ppm) + 1
+    Hp = int((y1 - y0 + 2 * pad) * ppm) + 1
+    ox, oy = x0 - pad, y0 - pad
+
+    def px(x, y):
+        return ((x - ox) * ppm, (y - oy) * ppm)
+
+    mask = Image.new("L", (Wp, Hp), 0)
+    md = ImageDraw.Draw(mask)
+    for poly in G.polygons(region.region):
+        md.polygon([px(x, y) for x, y in poly.exterior.coords], fill=255)
+        for ring in poly.interiors:
+            md.polygon([px(x, y) for x, y in ring.coords], fill=0)
+    region_mask = np.asarray(mask) > 0
+    stitched = Image.new("L", (Wp, Hp), 0)
+    sd = ImageDraw.Draw(stitched)
+    r_px = max(1.0, thread_w * 0.6 * ppm)
+    prev = None
+    for s in builder.stitches:
+        if s.cmd == STITCH:
+            if prev is not None:
+                a, b = px(prev.x, prev.y), px(s.x, s.y)
+                sd.line([a, b], fill=255, width=int(round(2 * r_px)))
+                sd.ellipse([b[0] - r_px, b[1] - r_px, b[0] + r_px, b[1] + r_px], fill=255)
+            prev = s
+        elif s.cmd == JUMP:
+            prev = s
+    uncovered = region_mask & ~(np.asarray(stitched) > 0)
+    uncovered = ndimage.binary_opening(uncovered, structure=np.ones((3, 3)))   # drop hairline slivers
+    labels, n = ndimage.label(uncovered, structure=np.ones((3, 3)))
+    if n == 0:
+        return 0
+    areas = ndimage.sum(uncovered, labels, index=np.arange(1, n + 1)) / ppm ** 2
+    count = 0
+    fp = _fill_params(params, "satin_fill")
+    for k in range(n):
+        if areas[k] < min_gap:
+            continue
+        comp = labels == (k + 1)
+        padded = np.pad(comp, 1)
+        polys = []
+        for contour in find_contours(padded.astype(float), 0.5):
+            pts = [((c - 1 + 0.5) / ppm + ox, (r - 1 + 0.5) / ppm + oy) for r, c in contour]
+            if len(pts) >= 4:
+                poly = make_valid(Polygon(pts))
+                polys.extend(G.polygons(poly))
+        if not polys:
+            continue
+        geom = G.to_multipolygon(unary_union(polys).buffer(0.15))
+        for poly in G.polygons(geom):
+            if poly.area < min_gap * 0.5:
+                continue
+            from ..classify import principal_angle
+            ang = (principal_angle(poly) + 90.0) % 180.0
+            st, _ = F.tatami_fill(poly, ang, fp["spacing"], fp["max_len"], 2, False, fp["pull"], 0.3, builder.cur,
+                                  builder.travel_len, builder.trim_threshold, underpath=builder.underpath,
+                                  lock_len=builder.lock_len)
+            st = [s for s in st if s.cmd == STITCH]
+            if len(st) < 2:
+                continue
+            builder.connect(st[0].xy(), st[1].xy(), None)
+            builder.add(st)
+            block.objects.append(StitchObject("satin_fill", f"gap patch {poly.area:.1f} mm2", st))
+            count += 1
+    if count:
+        log.append(f"{region.name}: {count} uncovered patch(es) over {min_gap} mm2 filled after the main objects")
+    return count

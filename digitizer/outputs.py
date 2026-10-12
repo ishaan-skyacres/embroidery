@@ -163,6 +163,18 @@ def write_report(path: Path, ctx: dict[str, Any]) -> Path:
                      f"{len(dens['hotspots'])} cell(s) over {dens['threshold']:g} per mm2 flagged in density_map.png")
         for hx, hy, v in dens["hotspots"][:8]:
             lines.append(f"  - hot spot {v:.0f}/mm2 at ({hx:.1f}, {hy:.1f}) mm")
+    cov = ctx.get("coverage")
+    if cov is not None:
+        lines += ["", "## Coverage", "",
+                  "Share of each colour's artwork that its stitches cover (thread width " + f"{params['preview.thread_width_mm']} mm):", ""]
+        for name, area in cov.region_mm2.items():
+            lines.append(f"- {name}: {100 - cov.fraction(name) * 100:.1f}% covered ({cov.uncovered_mm2[name]:.1f} of {area:.0f} mm2 uncovered)")
+        if cov.gaps:
+            lines += ["", f"Uncovered patches over {params.get('preview.coverage_gap_mm2', 1.0)} mm2 (largest first, see coverage_gaps.png):", ""]
+            for g in cov.gaps[:25]:
+                lines.append(f"- {g.group}: {g.area_mm2:.1f} mm2, up to {g.width_mm:.1f} mm wide, at ({g.x:.1f}, {g.y:.1f}) mm")
+        else:
+            lines.append("No uncovered patch over the reporting threshold.")
     fab = params.fabric_info()
     lines += ["", "## Fabric preset and stabilizer", "",
               f"- Preset: **{params.get('fabric')}** ({fab.get('label', '')})",

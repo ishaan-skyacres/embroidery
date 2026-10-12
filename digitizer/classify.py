@@ -252,7 +252,9 @@ def _prune_spurs(graph: SkeletonGraph, node_hw: dict[int, float]) -> None:
             b_end = deg.get(br.b, 0) == 1
             if a_end != b_end:
                 junction = br.b if a_end else br.a
-                limit = max(0.6, 1.5 * node_hw.get(junction, 0.0))
+                # a spur shorter than the inscribed radius at its junction lies inside the circle
+                # the satin covers there anyway; longer spurs are real features (caps, lobes)
+                limit = max(0.3, 0.5 * node_hw.get(junction, 0.0))
                 if br.length < limit and deg.get(junction, 0) >= 3:
                     removed = True
                     continue
@@ -454,6 +456,24 @@ def classify_region(region: GroupRegion, params: Params, log: list[str]) -> list
                 continue
             keep.append(piece)
         thin = G.to_multipolygon(unary_union(keep)) if keep else MultiPolygon()
+    thicken_above = float(params.get("detail.thicken_above_mm", 1.0))
+    if not thin.is_empty and thin_action != "thicken" and thicken_above < min_feature:
+        # pieces nearly as wide as the satin minimum (the rim of a tray, a stem) read as unstitched
+        # when reduced to a line: widen those to the minimum and stitch them as satin
+        near = []
+        rest = []
+        for piece in G.polygons(thin):
+            inner = G.opening(piece, thicken_above / 2.0)
+            if not inner.is_empty and inner.area >= 0.5 * piece.area:
+                near.append(piece)
+            else:
+                rest.append(piece)
+        if near:
+            thick = G.to_multipolygon(unary_union(near).buffer((min_feature - thicken_above) / 2.0 + 0.05))
+            wide = G.to_multipolygon(unary_union([wide, thick]))
+            thin = G.to_multipolygon(unary_union(rest)) if rest else MultiPolygon()
+            log.append(f"{name}: {len(near)} feature(s) between {thicken_above} and {min_feature} mm wide "
+                       f"({sum(q.area for q in near):.1f} mm2) thickened to {min_feature} mm and stitched as satin")
     if not thin.is_empty:
         if thin_action == "thicken":
             thick = G.to_multipolygon(thin.buffer(min_feature / 2.0))

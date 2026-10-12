@@ -48,6 +48,8 @@ fill:
     edge_run_inset_mm: 0.5
     edge_run_stitch_length_mm: 2.5
     edge_run_always: false           # true on knits, terry, fleece
+    skip_last: false                 # skip the last stitch of each underlay row
+  underpath: true                    # travel between fill sections as running stitch inside the shape (false = jump)
   travel_stitch_length_mm: 2.0
 
 satin:
@@ -82,12 +84,15 @@ detail:
   min_text_height_mm: 5.0
   thin_feature_mm: 1.5
   thin_feature_action: running       # warn | thicken | running
+  thicken_above_mm: 1.0              # thin features at least this wide are thickened to min_feature_width_mm (satin)
 
 sequence:
   within_color: center_out
   end_near_next_start: true
   travel_under_cover: true
   max_travel_mm: 25                  # longer in-colour moves lock off and trim
+  trim_after_object: false           # true = lock off and trim after every object instead of only long jumps
+  trim_before_color_change: true     # explicit trim command before each colour change (the machine trims anyway)
 
 colors:
   merge_threshold_de: 8
@@ -104,6 +109,8 @@ preview:
   density_cell_mm: 1.0
   density_hotspot_per_mm2: 8   # about three stacked satin/fill layers
   fabric_color: "#d9d4c7"
+  coverage_warn_percent: 2.0         # warn when more than this much of a colour's artwork has no stitches
+  coverage_gap_mm2: 1.0              # list uncovered patches at least this big
 
 # Fabric presets: `overrides` are dotted keys applied over the values above.
 fabrics:
