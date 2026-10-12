@@ -276,7 +276,14 @@ def run(opts: RunOptions) -> RunResult:
         _say(opts, "Stitching with the pure-Python engine (Path B)...")
         plan = build_plan(layout, parts_by_group, params, log)
         engine_note = "pure-Python generators (tatami, satin, running), pyembroidery writer"
-    plan.meta.update({"title": title, "size_mm": opts.size_mm})
+    # centre the stitches themselves on the hoop origin (the artwork box and the stitch extents
+    # differ by a fraction of a millimetre because of pull compensation and line ends)
+    bx0, by0, bx1, by1 = plan.bounds()
+    shift = ((bx0 + bx1) / 2.0, (by0 + by1) / 2.0)
+    plan.translate(-shift[0], -shift[1])
+    plan.meta.update({"title": title, "size_mm": opts.size_mm, "shift": shift})
+    if abs(shift[0]) > 0.05 or abs(shift[1]) > 0.05:
+        log.append(f"Re-centred the stitches on the hoop origin by ({-shift[0]:.2f}, {-shift[1]:.2f}) mm")
     res.plan = plan
 
     # ---- 6. embroidery files --------------------------------------------

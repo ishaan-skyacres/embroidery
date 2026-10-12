@@ -181,8 +181,9 @@ def render_art(svg_path: Path, layout, plan: StitchPlan, params, ppm: float | No
     art = Image.open(io.BytesIO(png)).convert("RGBA")
     # the SVG origin (vx, vy) maps to mm ((vx - cx) * scale, (vy - cy) * scale)
     cx, cy = layout.center_units
-    ox = ((vx - cx) * layout.scale - canvas.x0) * ppm
-    oy = ((vy - cy) * layout.scale - canvas.y0) * ppm
+    sx, sy = plan.meta.get("shift", (0.0, 0.0))
+    ox = ((vx - cx) * layout.scale - sx - canvas.x0) * ppm
+    oy = ((vy - cy) * layout.scale - sy - canvas.y0) * ppm
     base = Image.new("RGBA", (canvas.w, canvas.h), (0, 0, 0, 0))
     base.alpha_composite(art, (int(round(ox)), int(round(oy))))
     return base
