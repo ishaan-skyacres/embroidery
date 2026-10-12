@@ -49,6 +49,8 @@ fill:
     edge_run_inset_mm: 0.5
     edge_run_stitch_length_mm: 2.5
     edge_run_always: false
+    skip_last: false
+  underpath: true
   travel_stitch_length_mm: 2.0
 satin:
   spacing_mm: 0.4
@@ -80,11 +82,14 @@ detail:
   min_text_height_mm: 5.0
   thin_feature_mm: 1.5
   thin_feature_action: running
+  thicken_above_mm: 1.0
 sequence:
   within_color: center_out
   end_near_next_start: true
   travel_under_cover: true
   max_travel_mm: 25
+  trim_after_object: false
+  trim_before_color_change: true
 colors:
   merge_threshold_de: 8
   refuse_merge_de: 25
@@ -99,6 +104,8 @@ preview:
   density_cell_mm: 1.0
   density_hotspot_per_mm2: 8
   fabric_color: '#d9d4c7'
+  coverage_warn_percent: 2.0
+  coverage_gap_mm2: 1.0
 knockdown:
   enabled: false
   row_spacing_mm: 1.0
@@ -116,7 +123,7 @@ fabric_preset:
   topping: None needed.
   hooping: Hoop the fabric with the stabilizer underneath. Drum-tight, grain straight.
 run:
-  input: input/rack.svg
+  input: input/rack3.svg
   size_mm: 120.0
   hoop: 280x200
   fabric: woven

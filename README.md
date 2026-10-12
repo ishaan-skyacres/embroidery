@@ -62,9 +62,9 @@ grouping, sequencing rules, previews and validation:
 `INKSTITCH_PYTHON`). `--engine auto` (default) uses Path A when installed and
 falls back to Path B; `--engine python` or `--engine inkstitch` forces one.
 
-Which engine is better? On the sample design (`input/rack.svg`, 120 mm) Path B
-gave 22,652 stitches with 337 in-colour jumps; Path A gave 27,064 stitches with
-803 jumps, because Ink/Stitch stitches each satin branch as a separate column
+Which engine is better? On the sample design (`input/rack3.svg`, 120 mm) Path B
+gave 26,899 stitches with 308 in-colour jumps; Path A gave 30,912 stitches with
+889 jumps, because Ink/Stitch stitches each satin branch as a separate column
 and jumps between them, while Path B walks satin trees out along the
 centreline and satins back, hiding the travel. On a single-needle machine every
 jump is a thread to trim by hand, so for designs with many small parts
@@ -74,7 +74,7 @@ validation; compare `report.md` of each.
 ## Run
 
 ```bash
-digitize input/rack.svg --size-mm 120 --out out/            # defaults: hoop 280x200, woven
+digitize input/rack3.svg --size-mm 120 --out out/           # defaults: hoop 280x200, woven
 digitize logo.ai --size-mm 90 --hoop 140x140 --fabric knit --out out_logo/
 digitize art.svg --size-mm 120 --review-groups --out out/    # stop after colour grouping
 digitize art.svg --size-mm 120 --groups out/groups_suggested.yaml --out out/
@@ -180,7 +180,7 @@ digitizer/palettes/   thread charts (GPL files from Ink/Stitch, GPL-3.0)
 params.yaml           all parameters (documented in PARAMS.md)
 scripts/              install_inkstitch.sh, make_wx_stub.py
 tests/                pytest suite, fixtures and golden summaries
-input/rack.svg        the sample artwork; examples/ holds its outputs
+input/rack3.svg       the sample artwork (rack.svg is the earlier version); examples/ holds its outputs
 ```
 
 License: GPL-3.0-or-later (the thread palettes and the optional Ink/Stitch engine are GPL).

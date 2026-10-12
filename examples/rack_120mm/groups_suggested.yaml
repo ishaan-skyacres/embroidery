@@ -13,7 +13,7 @@ groups:
     - Isacord Polyester 0020 Black (dE 2.1)
     - Robison-Anton Polyester 5596 Black (dE 2.1)
     - Madeira Polyneon 1800 Black (dE 11.0)
-    area_mm2: 2636.0
+    area_mm2: 2638.7
   white:
     members:
     - '#fcfcfb'
@@ -26,7 +26,7 @@ groups:
     - Isacord Polyester 0015 White (dE 0.8)
     - Robison-Anton Polyester 5703 Oyster (dE 0.8)
     - Madeira Polyneon 1804 Blanc de Blanc (dE 4.2)
-    area_mm2: 1231.3
+    area_mm2: 1227.7
   olive:
     members:
     - '#739a5f'
@@ -39,7 +39,7 @@ groups:
     - Madeira Polyneon 1968 Fair Green (dE 1.8)
     - Isacord Polyester 5933 Grasshopper (dE 6.3)
     - Robison-Anton Polyester 9145 Endicott Bay (dE 6.5)
-    area_mm2: 1058.0
+    area_mm2: 1057.0
   dark green:
     members:
     - '#264725'
@@ -52,7 +52,7 @@ groups:
     - Robison-Anton Polyester 5849 Blue Spruce (dE 1.7)
     - Isacord Polyester 5555 Deep Green (dE 4.1)
     - Madeira Polyneon 1902 Mitchell Green (dE 6.0)
-    area_mm2: 875.7
+    area_mm2: 872.2
   royal blue:
     members:
     - '#3953a4'
@@ -78,11 +78,11 @@ groups:
     - Isacord Polyester 1704 Candy Apple (dE 3.0)
     - Madeira Polyneon 1779 Honeysuckle (dE 3.5)
     - Robison-Anton Polyester 9170 Miami Artillery (dE 4.3)
-    area_mm2: 300.4
+    area_mm2: 299.7
 order:
-- royal blue
-- white
 - olive
 - dark green
+- royal blue
+- white
 - red
 - black
