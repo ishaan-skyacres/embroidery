@@ -325,37 +325,110 @@ def stitch_running_part(part: Part, builder: BlockBuilder, params: Params, cover
 
 # ---------------------------------------------------------------------------
 def order_parts(parts: list[Part], start: tuple[float, float] | None,
-                next_start: tuple[float, float] | None = None) -> list[Part]:
-    """Fills centre-out (large first), then satin, then outlines, each nearest-neighbour.
+                next_start: tuple[float, float] | None = None, big_fill_mm2: float = 150.0,
+                optimize: bool = True) -> list[Part]:
+    """Sewing order inside one colour.
 
-    When `next_start` is given, the last object of the last kind present is the one nearest to
-    it, so the block ends close to where the next colour begins.
+    Large fills go first, from the design centre outward (they push distortion out). Every other
+    object (small fills, satins, thin lines) follows a short tour: nearest-neighbour from where
+    the previous colour ended, improved with 2-opt, ending near where the next colour begins.
     """
-    fills = [p for p in parts if p.kind in ("fill", "satin_fill")]
-    satins = [p for p in parts if p.kind == "satin"]
-    runs = [p for p in parts if p.kind == "running"]
-    fills.sort(key=lambda p: (G.dist(p.center(), (0.0, 0.0)) - 0.02 * p.area))
-    ordered = list(fills)
-    cur = fills[-1].center() if fills else start
-    groups = [g for g in (satins, runs) if g]
-    for gi, group in enumerate(groups):
-        remaining = list(group)
-        last = None
-        if next_start is not None and gi == len(groups) - 1 and len(remaining) > 1:
-            last = min(remaining, key=lambda p: G.dist(p.center(), next_start))
-            remaining.remove(last)
-        while remaining:
-            if cur is None:
-                nxt = max(remaining, key=lambda p: p.area)
-            else:
-                nxt = min(remaining, key=lambda p: G.dist(p.center(), cur))
-            ordered.append(nxt)
-            remaining.remove(nxt)
-            cur = nxt.center()
-        if last is not None:
-            ordered.append(last)
-            cur = last.center()
-    return ordered
+    big = [p for p in parts if p.kind in ("fill", "satin_fill") and p.area >= big_fill_mm2]
+    big.sort(key=lambda p: (G.dist(p.center(), (0.0, 0.0)) - 0.02 * p.area))
+    rest = [p for p in parts if p not in big]
+    cur = big[-1].center() if big else (start if start is not None else (0.0, 0.0))
+    if not rest:
+        return big
+    if len(rest) == 1:
+        return big + rest
+    centers = np.asarray([p.center() for p in rest], float)
+    n = len(rest)
+    # distance matrix: true shape-to-shape distances when affordable (a 70 mm tray's centre is a
+    # poor proxy for where it ends), centre distances for very many objects
+    D = np.hypot(centers[:, None, 0] - centers[None, :, 0], centers[:, None, 1] - centers[None, :, 1])
+    d_start = np.hypot(centers[:, 0] - cur[0], centers[:, 1] - cur[1])
+    if n <= 250:
+        geoms = [_part_shape(p) for p in rest]
+        for i in range(n):
+            for j in range(i + 1, n):
+                D[i, j] = D[j, i] = float(geoms[i].distance(geoms[j]))
+        sp = Point(cur)
+        d_start = np.asarray([float(g.distance(sp)) for g in geoms])
+    # fixed end: the object nearest to the next colour's start
+    end_idx = None
+    if next_start is not None and n > 2:
+        end_idx = int(np.argmin(np.hypot(centers[:, 0] - next_start[0], centers[:, 1] - next_start[1])))
+    # nearest-neighbour construction
+    unvisited = set(range(n))
+    if end_idx is not None:
+        unvisited.discard(end_idx)
+    order: list[int] = []
+    pos = None
+    while unvisited:
+        idx = list(unvisited)
+        d = d_start[idx] if pos is None else D[pos, idx]
+        k = idx[int(np.argmin(d))]
+        order.append(k)
+        unvisited.discard(k)
+        pos = k
+    if end_idx is not None:
+        order.append(end_idx)
+    if optimize and 3 < n <= 1500:
+        order = _two_opt(order, D, d_start, fixed_end=end_idx is not None)
+    return big + [rest[i] for i in order]
+
+
+def _part_shape(part: Part):
+    if part.geom is not None and not part.geom.is_empty:
+        return part.geom
+    if part.graph and part.graph.branches:
+        from shapely.geometry import MultiLineString
+        return MultiLineString([LineString(b.pts) for b in part.graph.branches if len(b.pts) > 1])
+    return Point(part.center())
+
+
+def _two_opt(order: list[int], Dfull: np.ndarray, d_start: np.ndarray, fixed_end: bool,
+             max_passes: int = 8) -> list[int]:
+    """2-opt on an open path: node 0 is the fixed start position; the last node stays if fixed_end.
+
+    Reversing tour[i..j] replaces edges (a,b)=(tour[i-1],tour[i]) and (c,d)=(tour[j],tour[j+1]) by
+    (a,c) and (b,d); when j is the open end there is no (c,d) edge.
+    """
+    n = len(order) + 1
+    D = np.zeros((n, n))
+    D[1:, 1:] = Dfull[np.ix_(order, order)]
+    D[0, 1:] = d_start[order]
+    D[1:, 0] = d_start[order]
+    tour = np.arange(n)
+    j_max = n - 2 if fixed_end else n - 1
+    for _ in range(max_passes):
+        improved = False
+        for i in range(1, n - 1):
+            if i + 1 > j_max:
+                break
+            a, b = tour[i - 1], tour[i]
+            js = np.arange(i + 1, j_max + 1)
+            c = tour[js]
+            has_next = js + 1 < n
+            d = tour[np.minimum(js + 1, n - 1)]
+            gain = D[a, b] - D[a, c] + np.where(has_next, D[c, d] - D[b, d], 0.0)
+            k = int(np.argmax(gain))
+            if gain[k] > 1e-6:
+                j = int(js[k])
+                tour[i:j + 1] = tour[i:j + 1][::-1].copy()
+                improved = True
+        if not improved:
+            break
+    return [order[t - 1] for t in tour[1:]]
+
+
+def _part_distance(part: Part, pt: Point) -> float:
+    if part.geom is not None and not part.geom.is_empty:
+        return float(part.geom.distance(pt))
+    if part.graph and part.graph.branches:
+        allpts = np.vstack([b.pts for b in part.graph.branches])
+        return float(np.min(np.hypot(allpts[:, 0] - pt.x, allpts[:, 1] - pt.y)))
+    return G.dist(part.center(), (pt.x, pt.y))
 
 
 def block_start_point(parts: list[Part]) -> tuple[float, float] | None:
@@ -397,11 +470,16 @@ def build_plan(layout: Layout, parts_by_group: dict[str, list[Part]], params: Pa
             later = [r for r in layout.regions[layout.regions.index(region) + 1:] if parts_by_group.get(r.name)]
             if later:
                 next_start = block_start_point(parts_by_group[later[0].name])
-        ordered = order_parts(parts, prev_end, next_start)
-        # geometry that later objects of this colour will cover (travel may cross it)
-        remaining_geoms = [p.geom for p in ordered if p.geom is not None]
-        for idx, part in enumerate(ordered):
-            cover_geom = unary_union([g for g in remaining_geoms[idx:] if g is not None]) if remaining_geoms[idx:] else None
+        big_mm2 = float(params.get("sequence.big_fill_mm2", 400.0))
+        optimize = bool(params.get("sequence.optimize_tour", True))
+        ordered = order_parts(parts, prev_end, next_start, big_mm2, optimize)
+        big = [p for p in ordered if p.kind in ("fill", "satin_fill") and p.area >= big_mm2]
+        pending = [p for p in ordered if p not in big]
+        done: list[Part] = []
+
+        def stitch_one(part: Part):
+            remaining = [q.geom for q in pending if q is not part and q.geom is not None] + ([part.geom] if part.geom is not None else [])
+            cover_geom = unary_union(remaining) if remaining else None
             cover = prep(cover_geom.buffer(0.3)) if cover_geom is not None and not cover_geom.is_empty else None
             if part.kind in ("fill", "satin_fill"):
                 objs = stitch_fill_part(part, builder, params, cover, notes)
@@ -412,6 +490,14 @@ def build_plan(layout: Layout, parts_by_group: dict[str, list[Part]], params: Pa
             block.objects.extend(objs)
             cx, cy = part.center()
             part.notes.append(f"at {location_words(cx, cy, W, H)}")
+            done.append(part)
+
+        for part in big:
+            stitch_one(part)
+        for part in list(pending):
+            pending.remove(part)
+            stitch_one(part)
+        ordered = done
         patched = patch_gaps(region, builder, block, params, log)
         block.stitches = builder.finish()
         block.descriptions.extend(describe_parts(ordered, W, H))

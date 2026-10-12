@@ -87,8 +87,10 @@ detail:
   thicken_above_mm: 1.0              # thin features at least this wide are thickened to min_feature_width_mm (satin)
 
 sequence:
-  within_color: center_out
-  end_near_next_start: true
+  within_color: center_out           # large fills first, from the centre outward
+  big_fill_mm2: 400                  # fills at least this big count as "large" for the centre-out rule
+  optimize_tour: true                # everything else: nearest-neighbour route improved with 2-opt
+  end_near_next_start: false         # true forces the last object towards the next colour's start (costs a long in-colour jump; the colour-change jump is trimmed by the machine anyway)
   travel_under_cover: true
   max_travel_mm: 25                  # longer in-colour moves lock off and trim
   trim_after_object: false           # true = lock off and trim after every object instead of only long jumps

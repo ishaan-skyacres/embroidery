@@ -4,7 +4,7 @@ Scaled by 0.2478 mm/unit to 79.5 x 120.0 mm; hoop 280x200 as labelled, 40.0 mm t
 black is mostly thin lines (56% thinner than 1.5 mm): stitched last as an outline group (drawn under white, olive, dark green, royal blue, red).
 Sewing order: olive -> dark green -> royal blue -> white -> red -> black
 olive: 26 feature(s) between 1.0 and 1.5 mm wide (168.7 mm2) thickened to 1.5 mm and stitched as satin
-olive: 239 thin line(s) (168.7 mm2, mean width 0.51 mm) -> running stitch
+olive: 239 thin line(s) in 61 piece(s) (168.7 mm2, mean width 0.51 mm) -> running/bean stitch
 olive: satin 2.1 mm wide x 20 mm, 3 branch(es)
 olive: satin 1.7 mm wide x 25 mm, 14 branch(es)
 olive: satin 2.4 mm wide x 18 mm, 5 branch(es)
@@ -65,7 +65,7 @@ olive: blob 3 mm2, 1.6 mm wide -> satin-style fill at 72 deg
 olive: blob 3 mm2, 1.6 mm wide -> satin-style fill at 71 deg
 olive: blob 2 mm2, 1.5 mm wide -> satin-style fill at 171 deg
 dark green: 17 feature(s) between 1.0 and 1.5 mm wide (71.9 mm2) thickened to 1.5 mm and stitched as satin
-dark green: 292 thin line(s) (185.1 mm2, mean width 0.40 mm) -> running stitch
+dark green: 292 thin line(s) in 74 piece(s) (185.1 mm2, mean width 0.40 mm) -> running/bean stitch
 dark green: satin 2.2 mm wide x 35 mm, 10 branch(es)
 dark green: satin 3.4 mm wide x 28 mm, 7 branch(es)
 dark green: satin 2.4 mm wide x 25 mm, 7 branch(es)
@@ -116,7 +116,7 @@ royal blue: satin 1.8 mm wide x 99 mm, 1 branch(es)
 royal blue: satin 1.8 mm wide x 98 mm, 1 branch(es)
 royal blue: satin 1.8 mm wide x 99 mm, 1 branch(es)
 white: 1 feature(s) between 1.0 and 1.5 mm wide (1.7 mm2) thickened to 1.5 mm and stitched as satin
-white: 41 thin line(s) (22.7 mm2, mean width 0.55 mm) -> running stitch
+white: 41 thin line(s) in 11 piece(s) (22.7 mm2, mean width 0.55 mm) -> running/bean stitch
 white: branching shape 4.7 mm wide (3 junctions) -> tatami fill
 white: branching shape 5.0 mm wide (4 junctions) -> tatami fill
 white: branching shape 4.9 mm wide (3 junctions) -> tatami fill
@@ -162,7 +162,7 @@ red: blob 6 mm2, 2.3 mm wide -> satin-style fill at 93 deg
 red: blob 5 mm2, 2.2 mm wide -> satin-style fill at 76 deg
 red: blob 3 mm2, 1.7 mm wide -> satin-style fill at 90 deg
 black: 41 feature(s) between 1.0 and 1.5 mm wide (345.2 mm2) thickened to 1.5 mm and stitched as satin
-black: 917 thin line(s) (1128.0 mm2, mean width 0.64 mm) -> bean stitch
+black: 917 thin line(s) in 54 piece(s) (1128.0 mm2, mean width 0.64 mm) -> running/bean stitch
 black: satin 2.3 mm wide x 200 mm, 37 branch(es)
 black: satin 2.1 mm wide x 221 mm, 75 branch(es)
 black: satin 2.1 mm wide x 186 mm, 68 branch(es)
@@ -184,14 +184,14 @@ black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 16 deg
 black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 91 deg
 black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 121 deg
 olive: 5 uncovered patch(es) over 1.0 mm2 filled after the main objects
-olive: 4536 stitches, 93 jumps, 17 trims
+olive: 4533 stitches, 65 jumps, 4 trims
 dark green: 1 uncovered patch(es) over 1.0 mm2 filled after the main objects
-dark green: 3713 stitches, 99 jumps, 17 trims
+dark green: 3541 stitches, 63 jumps, 2 trims
 royal blue: 1690 stitches, 3 jumps, 3 trims
 white: 3 uncovered patch(es) over 1.0 mm2 filled after the main objects
-white: 22 mm of travel runs inside the fill; 30 mm of travel runs inside the fill; 75 mm of travel runs inside the fill
-white: 2968 stitches, 26 jumps, 13 trims
-red: 1082 stitches, 29 jumps, 17 trims
+white: 22 mm of travel runs inside the fill; 33 mm of travel runs inside the fill; 38 mm of travel runs inside the fill
+white: 2890 stitches, 20 jumps, 8 trims
+red: 1028 stitches, 22 jumps, 3 trims
 black: 14 uncovered patch(es) over 1.0 mm2 filled after the main objects
-black: 12910 stitches, 64 jumps, 26 trims
-Re-centred the stitches on the hoop origin by (-0.11, 0.17) mm
+black: 12043 stitches, 56 jumps, 19 trims
+Re-centred the stitches on the hoop origin by (-0.18, 0.17) mm

@@ -63,8 +63,8 @@ grouping, sequencing rules, previews and validation:
 falls back to Path B; `--engine python` or `--engine inkstitch` forces one.
 
 Which engine is better? On the sample design (`input/rack3.svg`, 120 mm) Path B
-gave 26,899 stitches with 308 in-colour jumps; Path A gave 30,912 stitches with
-889 jumps, because Ink/Stitch stitches each satin branch as a separate column
+gave 25,725 stitches with 223 in-colour jumps; Path A gave 30,438 stitches with
+653 jumps, because Ink/Stitch stitches each satin branch as a separate column
 and jumps between them, while Path B walks satin trees out along the
 centreline and satins back, hiding the travel. On a single-needle machine every
 jump is a thread to trim by hand, so for designs with many small parts

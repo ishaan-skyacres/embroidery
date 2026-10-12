@@ -188,8 +188,10 @@ Sources (referenced by tag below):
 | Key | Default | Range | Reason | Source |
 |---|---|---|---|---|
 | `order` | layers back to front, then large fills before details, outlines last | fixed | Lower layers first so upper layers cover their edges; outlines last to cover fill edges. | you, [W-BLOG-LOW] |
-| `within_color` | centre out | fixed | Push distortion outward from the centre of the design. | you |
-| `end_near_next_start` | true | bool | Each block ends near the next block's start so the first stitch after a thread change is short. | you |
+| `within_color` | centre out | fixed | Large fills are pushed outward from the centre of the design; everything else follows the tour. | you |
+| `end_near_next_start` | false | bool | When true, the last object of a colour is the one nearest the next colour's start. Off by default: the move between colours is a jump the machine trims at the colour change anyway, while forcing the end costs a long in-colour jump that must be trimmed by hand (on the sample design it added a 70 mm jump). | you, test runs |
+| `big_fill_mm2` | 400 | 100 to 1000 | Fills at least this big are stitched first, from the centre outward. Smaller fills join the tour below. | you |
+| `optimize_tour` | true | bool | Objects other than large fills follow a nearest-neighbour route from where the previous colour ended, improved with 2-opt (fewer and shorter jumps; on the sample design olive went from 1510 mm to about 600 mm of jump travel). | you, test runs |
 | `travel_under_cover` | true | bool | Travel inside a colour is a short running stitch routed through regions of the same colour that are not yet stitched, so later stitching covers it. | [LINDEE], [COLDESI] |
 | `max_travel_mm` | 25 | 10 to 50 | Longer in-colour moves lock off and trim instead of travelling. | you |
 | `trim_after_object` | false | bool | Lock off and trim after every object, like Ink/Stitch's per-object "trim after". Off: the tool only trims when a jump is longer than `max_travel_mm`, because the EOC06 does not trim inside a colour and every trim command is still a thread end to deal with. | [IS-PARAMS] |

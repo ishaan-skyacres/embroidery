@@ -16,7 +16,7 @@ from typing import Any
 import numpy as np
 from PIL import Image, ImageDraw
 from scipy import ndimage
-from shapely.geometry import LineString, MultiPolygon, Polygon
+from shapely.geometry import LineString, MultiPolygon, Point, Polygon
 from shapely.ops import unary_union
 from skimage.morphology import skeletonize
 
@@ -390,6 +390,31 @@ class Part:
         return (allpts[:, 0].min(), allpts[:, 1].min(), allpts[:, 0].max(), allpts[:, 1].max())
 
 
+def split_components(graph: SkeletonGraph) -> list[SkeletonGraph]:
+    """Connected components of a skeleton graph, largest first."""
+    parent: dict[int, int] = {}
+
+    def find(a):
+        while parent.setdefault(a, a) != a:
+            parent[a] = parent[parent[a]]
+            a = parent[a]
+        return a
+
+    for br in graph.branches:
+        ra, rb = find(br.a), find(br.b)
+        if ra != rb:
+            parent[ra] = rb
+    groups: dict[int, list[Branch]] = {}
+    for br in graph.branches:
+        groups.setdefault(find(br.a), []).append(br)
+    out = []
+    for brs in groups.values():
+        nodes = {n: graph.nodes[n] for br in brs for n in (br.a, br.b) if n in graph.nodes}
+        out.append(SkeletonGraph(nodes=nodes, branches=brs))
+    out.sort(key=lambda g: -g.total_length())
+    return out
+
+
 def components(geom) -> list[Polygon]:
     return sorted(G.polygons(geom), key=lambda p: -p.area)
 
@@ -487,23 +512,37 @@ def classify_region(region: GroupRegion, params: Params, log: list[str]) -> list
                 keep = [b for b in graph.branches if not (b.length < 1.0 and deg[b.a] == 1 and deg[b.b] == 1)]
                 dropped = len(graph.branches) - len(keep)
                 graph.branches = keep
-                if keep:
-                    mean_w = graph.mean_width()
+                comps = split_components(graph)
+                thin_polys = G.polygons(thin)
+                import shapely
+                tree = shapely.STRtree(thin_polys) if thin_polys else None
+                n_lines = 0
+                for cg in comps:
+                    mean_w = cg.mean_width()
                     bean = mean_w >= bean_min
-                    p = new_part(kind="running", graph=graph, geom=thin, width_mm=mean_w, max_width_mm=graph.max_width(),
-                                 bean=bean, area=thin.area,
-                                 description=f"{'bean' if bean else 'running'} stitch along {len(keep)} thin line(s), "
-                                             f"{mean_w:.2f} mm wide on average")
+                    pts = np.vstack([b.pts for b in cg.branches])
+                    geom = None
+                    if tree is not None:
+                        hits = set()
+                        for q in pts[:: max(1, len(pts) // 20)]:
+                            hits.update(tree.query(Point(q[0], q[1]).buffer(0.2), predicate="intersects"))
+                        if hits:
+                            geom = G.to_multipolygon(unary_union([thin_polys[i] for i in hits]))
+                    n_lines += len(cg.branches)
+                    p = new_part(kind="running", graph=cg, geom=geom, width_mm=mean_w, max_width_mm=cg.max_width(),
+                                 bean=bean, area=geom.area if geom is not None else 0.0,
+                                 description=f"{'bean' if bean else 'running'} stitch along {len(cg.branches)} thin line(s), "
+                                             f"{mean_w:.2f} mm wide")
                     if thin_action == "warn":
-                        p.warnings.append(f"{name}: {thin.area:.1f} mm2 of features thinner than {min_feature} mm "
+                        p.warnings.append(f"{name}: feature {mean_w:.2f} mm wide is thinner than {min_feature} mm "
                                           f"(stitched as {'bean' if bean else 'running'} stitch).")
-                    else:
-                        p.notes.append(f"{thin.area:.1f} mm2 thinner than {min_feature} mm rendered as "
-                                       f"{'bean' if bean else 'running'} stitch")
+                if comps:
+                    note = f"{thin.area:.1f} mm2 thinner than {min_feature} mm rendered as running/bean stitch in {len(comps)} piece(s)"
+                    parts[-1].notes.append(note)
                     if dropped:
-                        p.notes.append(f"dropped {dropped} speck(s) under 1 mm")
-                    log.append(f"{name}: {len(keep)} thin line(s) ({thin.area:.1f} mm2, mean width {mean_w:.2f} mm) -> "
-                               f"{'bean' if bean else 'running'} stitch")
+                        parts[-1].notes.append(f"dropped {dropped} speck(s) under 1 mm")
+                    log.append(f"{name}: {n_lines} thin line(s) in {len(comps)} piece(s) ({thin.area:.1f} mm2, mean width "
+                               f"{graph.mean_width():.2f} mm) -> running/bean stitch")
     if wide.is_empty:
         return parts
 
