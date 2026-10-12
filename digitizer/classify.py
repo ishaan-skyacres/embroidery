@@ -532,8 +532,9 @@ def _classify_ribbon_or_blob(comp, name, new_part, satin_min, satin_max, convert
     w = g.mean_width()
     deg = g.degree()
     junctions = sum(1 for d in deg.values() if d >= 3)
-    if junctions and w >= 3.0:
+    if junctions and w >= float(params["satin.branching_to_fill_width_mm"]):
         # a branchy shape wider than a lattice bar: satin fans out at the junctions, tatami is safer
+        # (under 4 mm the fans are small and a tatami this narrow looks like a lattice)
         ang = (principal_angle(comp) + 45.0) % 180.0
         p = new_part(kind="fill", geom=G.to_multipolygon(comp), width_mm=w, max_width_mm=g.max_width(), area=comp.area,
                      description=f"tatami fill of a branching {w:.1f} mm wide shape")

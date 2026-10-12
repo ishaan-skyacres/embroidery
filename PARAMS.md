@@ -134,6 +134,8 @@ Sources (referenced by tag below):
 | `underlay.edge_run_min_size_mm` | 15 | 10 to 25 | Shapes larger than this also get an edge-run underlay just inside the outline, which firms the edge against push. Wilcom pairs edge run with tatami underlay on large shapes. **verified direction** | [W-RUND], [W-TUND] |
 | `underlay.edge_run_inset_mm` | 0.5 | 0.3 to 1.0 | Same reasoning as the tatami underlay inset. | [W-RUND] |
 | `underlay.edge_run_stitch_length_mm` | 2.5 | 2 to 3 | Standard running-stitch length. | [IS-STROKE] |
+| `underlay.edge_run_always` | false | bool | Fabric presets for knits, terry and fleece set this so every fill gets an edge run regardless of size (stretch and pile need the edge firmed up). | [W-FAB], [IMPR] |
+| `underlay.layers` | 1 | 1 to 2 | 2 adds a second tatami underlay layer at the fill angle (double tatami underlay) as recommended for pique. | [IMPR], [W-FAB] |
 | `travel_stitch_length_mm` | 2.0 | 1.5 to 2.5 | Travel runs inside a fill are short so tension pulls them into the fabric and the top layer hides them. | [LINDEE] |
 
 ## 4. Satin column (`satin:`)
@@ -145,6 +147,7 @@ Sources (referenced by tag below):
 | `max_width_mm` | 7.0 | 6 to 8 | Satins wider than this snag and lie loose on clothing; Bernina recommends splitting at 7 mm. **verified** | [B-SPLIT], [DRAW] |
 | `split_stitch_length_mm` | 7.0 | 5 to 7 | Satins between 7 and 10 mm are kept as satin with split stitches no longer than this (needle penetrations staggered). | [B-SPLIT] |
 | `convert_to_fill_width_mm` | 10.0 | 8 to 12 | Over this width the column is converted to tatami fill; mySewnet suggests fills beyond 8 to 10 mm. **verified** | [MSN-SATIN], [DRAW] |
+| `branching_to_fill_width_mm` | 4.0 | 3 to 6 | A shape whose skeleton has junctions (a lattice, a tray with a lip, a lobed leaf) is satin-stitched branch by branch only when narrower than this; wider branching shapes become tatami because satin fans out where branches meet. Narrow branching shapes stay satin because a tatami under 4 mm wide reads as a lattice. **conservative choice** (from test renders) | you |
 | `pull_compensation_mm` | 0.2 | 0.17 to 0.4 | Per side. Bernina default 0.2 mm; satin columns thin by 0.17 to 0.25 mm on stable wovens. **verified** | [B-PULL], [W-BLOG-PP] |
 | `underlay.none_below_mm` | 2.0 | 1.5 to 2.5 | Under 2 mm there is no room for underlay (mySewnet: satin wider than 2 mm generally warrants underlay). **verified** | [MSN-SATIN] |
 | `underlay.center_walk_below_mm` | 4.0 | 3 to 5 | 2 to 4 mm: a single centre run. | you, [MSN-UND] |
@@ -156,6 +159,7 @@ Sources (referenced by tag below):
 | `underlay.zigzag_spacing_mm` | 3.0 | 2 to 4 | Ink/Stitch default. **verified** | [IS-SATIN] |
 | `underlay.zigzag_inset_mm` | 0.2 | 0.1 to 0.4 | Ink/Stitch default: half the contour inset. **verified** | [IS-SATIN] |
 | `short_stitch_inset_percent` | 15 | 0 to 30 | On tight inside curves, stitches closer than 0.25 mm are inset by this much to avoid a thread pile-up. Ink/Stitch default. **verified** | [IS-SATIN] |
+| `underlay.strength` | normal | normal, strong, double | `strong` (knits) lowers every width threshold by 25% so narrower columns get the next underlay step; `double` (pique) adds a second zigzag pass and contour underlay from 3 mm. | [IMPR], [W-FAB] |
 
 ## 5. Running stitch (`running:`)
 
@@ -185,6 +189,7 @@ Sources (referenced by tag below):
 | `end_near_next_start` | true | bool | Each block ends near the next block's start so the first stitch after a thread change is short. | you |
 | `travel_under_cover` | true | bool | Travel inside a colour is a short running stitch routed through regions of the same colour that are not yet stitched, so later stitching covers it. | [LINDEE], [COLDESI] |
 | `max_travel_mm` | 25 | 10 to 50 | Longer in-colour moves lock off and trim instead of travelling. | you |
+| `within_color` fills | centre out | fixed | Fill objects of a colour are stitched from the design centre outward (largest first on ties); satins and lines follow nearest-neighbour from there. | you |
 
 ## 8. Fabric presets (`fabrics:`)
 
@@ -214,12 +219,22 @@ double zigzag underlay where column width allows. **verified direction**
 | `palettes` | Madeira Polyneon, Isacord Polyester, Robison-Anton Polyester | any GPL palette in `digitizer/palettes/` | Open thread charts shipped with Ink/Stitch (GPL v3) used for nearest-thread suggestions. | Ink/Stitch `palettes/` |
 | `background_coverage` | 0.9 | 0.5 to 1.0 | A shape covering at least this fraction of the canvas is treated as background and skipped unless `--stitch-background`. | you |
 
+## 9b. Knockdown layer (`knockdown:`, enabled with `--knockdown`)
+
+| Key | Default | Range | Reason | Source |
+|---|---|---|---|---|
+| `enabled` | false | bool | A low-density tatami under the whole design on terry or fleece so the top stitches do not sink into the pile; stitched first in the first colour. | you, [W-FAB] |
+| `row_spacing_mm` | 1.0 | 0.8 to 1.5 | Open enough to flatten the pile without adding bulk. | you |
+| `max_stitch_length_mm` | 3.0 | 2.5 to 4 | Standard tatami length. | [IS-FILL] |
+| `expand_mm` | 1.0 | 0.5 to 2 | The knockdown extends this far past the design so edges are supported. | you |
+
 ## 10. Preview and estimates (`preview:`)
 
 | Key | Default | Range | Reason | Source |
 |---|---|---|---|---|
 | `thread_width_mm` | 0.4 | 0.3 to 0.5 | Visual width of a 40 wt polyester thread. | [W-BLOG-SP] |
 | `render_dpi` | 300 | 150 to 600 | Realistic preview resolution. | you |
+| `fabric_color` | #d9d4c7 | any hex | Background colour of the previews (a neutral natural cotton); `--fabric-color` is a separate option that marks artwork colours as background to skip. | you |
 | `density_cell_mm` | 1.0 | 0.5 to 2 | Cell size for the penetrations-per-mm2 heat map. | you |
 | `density_hotspot_per_mm2` | 8 | 5 to 12 | Cells with more needle penetrations per mm2 than this are flagged (thread-break and bird-nest risk). One tatami layer with underlay is about 0.9 penetrations per mm2; a satin edge cell is about 2.5 to 3; three stacked satin layers reach about 8. | you |
 

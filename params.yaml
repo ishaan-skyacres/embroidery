@@ -56,6 +56,7 @@ satin:
   max_width_mm: 7.0                  # wider satins get split stitches
   split_stitch_length_mm: 7.0
   convert_to_fill_width_mm: 10.0     # wider satins become tatami fill
+  branching_to_fill_width_mm: 4.0    # branching (junction) shapes at least this wide become tatami, narrower stay satin
   pull_compensation_mm: 0.2          # each side
   underlay:
     strength: normal                 # normal | strong (one step up) | double (pique)

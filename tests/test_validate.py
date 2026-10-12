@@ -20,6 +20,8 @@ def test_validator_catches_tampered_dst(fixtures, tmp_path):
     pat = pe.read(str(out / "design.dst"))
     bad = pe.EmbPattern()
     for x, y, c in pat.stitches:
+        if c & pe.COMMAND_MASK == pe.END:
+            continue                       # keep the END for the very end, or the reader stops early
         bad.add_stitch_absolute(c, x, y)
     bad.add_stitch_absolute(pe.STITCH, 0, 0)
     bad.add_stitch_absolute(pe.STITCH, 200, 0)

@@ -65,7 +65,8 @@ def test_messy12_groups_to_five_plus_background(fixtures, tmp_path):
 def test_wide_shape_classification(fixtures, tmp_path):
     res = run(RunOptions(input=fixtures / "wide_shape.svg", size_mm=60, out=tmp_path / "w", engine="python", quiet=True))
     report = (tmp_path / "w" / "report.md").read_text()
-    assert "wider than 7" in report or "too wide for satin" in report     # 15 mm bar converted to fill
+    assert "wider than 7" in report or "too wide for satin" in report     # 8.5 mm ribbon converted from satin to fill
+    assert "tatami fill" in report                                        # 13 mm bar is a plain fill
     kinds = {b.group: b.descriptions for b in res.plan.blocks}
     assert any("satin column" in d for d in kinds[[g for g in kinds if "blue" in g][0]])
     assert any("running-stitch" in d for d in kinds[[g for g in kinds if "black" in g or "grey" in g][0]])

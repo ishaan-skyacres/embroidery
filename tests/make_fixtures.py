@@ -38,12 +38,14 @@ def small_text() -> str:
 
 
 def wide_shape() -> str:
-    # at --size-mm 60 the long bar is 15 x 60 mm (must become fill), the second 5 x 45 mm (satin), the line 0.9 mm (running)
+    # at --size-mm 60: an 8.5 mm ribbon (satin candidate that must convert to fill, over 7 mm),
+    # a 13 mm bar (plain fill), a 5 mm bar (satin) and a 0.9 mm line (bean/running)
     return """<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60">
-  <rect x="2" y="0" width="15" height="60" fill="#c03030"/>
-  <rect x="22" y="5" width="5" height="45" fill="#3060c0"/>
-  <rect x="32" y="5" width="0.9" height="45" fill="#303030"/>
+  <rect x="1" y="0" width="8.5" height="60" fill="#c03030"/>
+  <rect x="12" y="2" width="13" height="56" fill="#c03030"/>
+  <rect x="28" y="5" width="5" height="45" fill="#3060c0"/>
+  <rect x="36" y="5" width="0.9" height="45" fill="#303030"/>
 </svg>
 """
 
