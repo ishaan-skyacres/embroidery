@@ -1,11 +1,11 @@
 # Digitizing report: SkyAcres logo
 
-Generated 2026-10-13 01:25 from `input/skyacres_logo.svg` with engine **python** (pure-Python generators (tatami, satin, running), pyembroidery writer).
+Generated 2026-10-13 01:28 from `input/skyacres_logo.svg` with engine **python** (pure-Python generators (tatami, satin, running), pyembroidery writer).
 
 ## Size and hoop
 
 - Final size: 100.3 x 76.2 mm (3.95 x 3.00 in), requested 101 mm on the longest side
-- Hoop: 200x200 (200 x 200 mm), mounted as labelled; 49.7 mm to the nearest hoop edge (required clearance 10 mm)
+- Hoop: 140x140 (140 x 140 mm), mounted as labelled; 19.7 mm to the nearest hoop edge (required clearance 10 mm)
 - Design centred on the hoop origin: stitch bounds -50.1, -38.1, 50.1, 38.1 mm
 
 ## Stitches
@@ -27,7 +27,7 @@ Generated 2026-10-13 01:25 from `input/skyacres_logo.svg` with engine **python**
 
 ## Layering and sequencing
 
-- Scaled by 0.3486 mm/unit to 100.7 x 76.2 mm; hoop 200x200 as labelled, 49.7 mm to the nearest hoop edge (clearance 10 mm).
+- Scaled by 0.3486 mm/unit to 100.7 x 76.2 mm; hoop 140x140 as labelled, 19.7 mm to the nearest hoop edge (clearance 10 mm).
 - Sewing order: olive
 
 ## Classification decisions
@@ -74,7 +74,7 @@ No uncovered patch over the reporting threshold.
 ## Validation
 
 - PASS
-- ok: DST extents 100.2 x 76.2 mm fit hoop 200x200 (as labelled) with 10 mm clearance
+- ok: DST extents 100.2 x 76.2 mm fit hoop 140x140 (as labelled) with 10 mm clearance
 - ok: DST is centred on the hoop origin (centre offset 0.00, 0.00 mm)
 - ok: 0 colour changes = 1 thread groups - 1
 - ok: longest stitch 4.51 mm <= 12.1 mm

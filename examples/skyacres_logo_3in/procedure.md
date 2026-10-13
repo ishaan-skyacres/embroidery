@@ -4,7 +4,7 @@
 
 1. [ ] Design: SkyAcres logo. Final size 100.3 x 76.2 mm (3.95 x 3.00 in).
 
-2. [ ] Hoop: use the 200x200 hoop (200 x 200 mm), mounted as labelled. The design leaves 50 mm to the nearest hoop edge (minimum 10 mm).
+2. [ ] Hoop: use the 140x140 hoop (140 x 140 mm), mounted as labelled. The design leaves 20 mm to the nearest hoop edge (minimum 10 mm).
 
 3. [ ] Totals: 3559 stitches, 1 thread colours, 0 thread changes. Estimated time about 6 min (6 min sewing at 600 spm plus about 2 min per thread change).
 

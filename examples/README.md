@@ -21,8 +21,8 @@ digitizing decision. `input/rack.svg` is the earlier version of the artwork.
 
 `skyacres_logo_3in/` is the SkyAcres logo (`input/skyacres_logo.svg`: the
 emblem and wordmark, with the "AGROTECHNOLOGIES INC" line removed) at 3 in
-(76.2 mm) tall for the 200 x 200 mm hoop on woven fabric, one colour:
+(76.2 mm) tall for the 140 x 140 mm hoop on woven fabric, one colour:
 
 ```
-digitize input/skyacres_logo.svg --height-mm 76.2 --hoop 200x200 --fabric woven --engine python --name "SkyAcres logo" --out examples/skyacres_logo_3in
+digitize input/skyacres_logo.svg --height-mm 76.2 --hoop 140x140 --fabric woven --engine python --name "SkyAcres logo" --out examples/skyacres_logo_3in
 ```

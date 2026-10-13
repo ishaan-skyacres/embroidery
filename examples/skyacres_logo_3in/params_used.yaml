@@ -10,7 +10,7 @@ machine:
     140x140:
     - 140
     - 140
-  default_hoop: 200x200
+  default_hoop: 140x140
   hoop_clearance_mm: 10
   max_stitch_mm: 12.1
   max_speed_spm: 860
@@ -127,7 +127,7 @@ fabric_preset:
 run:
   input: input/skyacres_logo.svg
   size_mm: 100.65664019195152
-  hoop: 200x200
+  hoop: 140x140
   fabric: woven
   engine: python
   colors: null
