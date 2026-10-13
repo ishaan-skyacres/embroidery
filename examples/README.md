@@ -34,11 +34,12 @@ woven preset:
 digitize input/rack3.svg --height-mm 152.4 --hoop 200x200 --fabric woven --engine python --name "tomato rack 6in" --out examples/rack3_6in
 ```
 
-`rack3_x2_5.2in_280/` and `rack3_x2_5.2in_200/` are two racks side by side at
-5.2 in (132 mm) tall (`input/rack3_x2_gap15.svg` with a 15 mm gap for the
-280 x 200 hoop, `input/rack3_x2_gap5.svg` with a 5 mm gap for the 200 x 200):
+`rack3_x2_5.2in_280/` is two racks side by side at 5.2 in (132 mm) tall with a
+15 mm gap for the 280 x 200 hoop (`input/rack3_x2_gap15.svg`).
+`rack3_x2_5in_200/` is the same pair sized for the 200 x 200 hoop: 5.05 in
+(128 mm) tall with a 10 mm gap, 180 mm overall (`input/rack3_x2_gap10.svg`):
 
 ```
 digitize input/rack3_x2_gap15.svg --height-mm 132.08 --hoop 280x200 --fabric woven --engine python --name "two racks 5.2in" --out examples/rack3_x2_5.2in_280
-digitize input/rack3_x2_gap5.svg  --height-mm 132.08 --hoop 200x200 --fabric woven --engine python --name "two racks 5.2in" --out examples/rack3_x2_5.2in_200
+digitize input/rack3_x2_gap10.svg --height-mm 128.2  --hoop 200x200 --fabric woven --engine python --name "two racks" --out examples/rack3_x2_5in_200
 ```
