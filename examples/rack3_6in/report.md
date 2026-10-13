@@ -1,0 +1,650 @@
+# Digitizing report: tomato rack 6in
+
+Generated 2026-10-13 03:11 from `input/rack3.svg` with engine **python** (pure-Python generators (tatami, satin, running), pyembroidery writer).
+
+## Size and hoop
+
+- Final size: 100.1 x 152.6 mm (3.94 x 6.01 in), requested 152 mm on the longest side
+- Hoop: 200x200 (200 x 200 mm), mounted as labelled; 23.8 mm to the nearest hoop edge (required clearance 10 mm)
+- Design centred on the hoop origin: stitch bounds -50.1, -76.3, 50.1, 76.3 mm
+
+## Stitches
+
+- Total stitches: 34982
+- Colour stops: 6 (5 thread changes)
+- Jumps inside colours: 298 (plus one jump to the start of each colour); trims: 56
+- Estimated time: 58 min sewing at 600 spm + 10 min thread changes = about 68 min
+- Stitch length (excluding lock stitches): min 0.30 mm, max 6.91 mm, mean 1.86 mm
+- Stitches under 0.3 mm (non-lock): 0; over 12.1 mm: 0
+
+| Stop | Group | Colour | Stitches | Jumps | Trims | What it stitches |
+|---|---|---|---|---|---|---|
+| 1 | olive | #739a5f | 6180 | 65 | 4 | 8 small shape(s) stitched as satin-style fills (2 to 4 mm across); 57 satin column(s), 1.1 to 2.6 mm wide, 809 mm in total; bean (triple) running-stitch lines, 336 mm in total, for details thinner tha |
+| 2 | royal blue | #3953a4 | 2147 | 3 | 3 | 3 satin column(s), 2.2 to 2.3 mm wide, 378 mm in total |
+| 3 | white | #fcfcfb | 4307 | 20 | 10 | 3 tatami fill area(s) totalling 1375 mm2 (largest: 510 mm2 upper, 504 mm2 centre, 361 mm2 lower); 8 satin column(s), 1.3 to 4.0 mm wide, 232 mm in total; bean (triple) running-stitch lines, 29 mm in t |
+| 4 | red | #e92024 | 1385 | 29 | 5 | 30 small shape(s) stitched as satin-style fills (2 to 4 mm across); 1 satin column(s), 2.7 to 2.7 mm wide, 8 mm in total |
+| 5 | dark green | #264725 | 4825 | 88 | 3 | 22 small shape(s) stitched as satin-style fills (2 to 4 mm across); 32 satin column(s), 1.1 to 4.0 mm wide, 436 mm in total; bean (triple) running-stitch lines, 645 mm in total, for details thinner th |
+| 6 | black | #090b09 | 16138 | 99 | 31 | 34 small shape(s) stitched as satin-style fills (2 to 4 mm across); 9 satin column(s), 1.6 to 3.3 mm wide, 1127 mm in total; bean (triple) running-stitch lines, 2520 mm in total, for details thinner t |
+
+## Colour grouping
+
+- **black** #090b09: members #090b09; thread Isacord Polyester 0020 Black (dE 2.1)
+- **white** #fcfcfb: members #fcfcfb; thread Isacord Polyester 0015 White (dE 0.8)
+- **olive** #739a5f: members #739a5f; thread Madeira Polyneon 1968 Fair Green (dE 1.8)
+- **dark green** #264725: members #264725; thread Robison-Anton Polyester 5849 Blue Spruce (dE 1.7)
+- **royal blue** #3953a4: members #3953a4; thread Isacord Polyester 3332 Forget Me Not (dE 2.5)
+- **red** #e92024: members #e92024; thread Isacord Polyester 1704 Candy Apple (dE 3.0)
+
+## Layering and sequencing
+
+- Scaled by 0.3147 mm/unit to 100.9 x 152.4 mm; hoop 200x200 as labelled, 23.8 mm to the nearest hoop edge (clearance 10 mm).
+- black is line work (48% thinner than 1.5 mm, perimeter^2/4piA = 769): stitched last as an outline group (drawn under white, olive, dark green, royal blue, red).
+- Layering conflict: dark green is above olive over 5 mm2 but below it over 1 mm2 at (-18.5, 36.9) mm, 0.2 mm2, (29.2, -3.5) mm, 0.2 mm2, (-32.0, -40.9) mm, 0.1 mm2. Resolved by knocking dark green out where olive is drawn on top, so each colour is still one block. Delta E between them is 30.5.
+- Sewing order: olive -> royal blue -> white -> red -> dark green -> black
+- 1 layering conflict(s) resolved by per-shape knockout (details above).
+
+## Classification decisions
+
+- **olive**: 60 running, 57 satin, 8 satin_fill
+  - running 1: running stitch along 7 thin line(s), 0.56 mm wide; at lower
+  - running 2: bean stitch along 5 thin line(s), 0.73 mm wide; at upper right
+  - running 3: running stitch along 11 thin line(s), 0.57 mm wide; at lower left
+  - running 4: bean stitch along 5 thin line(s), 0.90 mm wide; at upper left
+  - running 5: bean stitch along 13 thin line(s), 0.67 mm wide; at lower left
+  - running 6: running stitch along 1 thin line(s), 0.28 mm wide; at centre right
+  - running 7: bean stitch along 13 thin line(s), 0.64 mm wide; at centre right
+  - running 8: bean stitch along 5 thin line(s), 0.67 mm wide; at upper
+  - running 9: running stitch along 3 thin line(s), 0.35 mm wide; at centre left
+  - running 10: running stitch along 3 thin line(s), 0.53 mm wide; at centre
+  - running 11: running stitch along 13 thin line(s), 0.55 mm wide; at centre right
+  - running 12: running stitch along 5 thin line(s), 0.49 mm wide; at upper left
+  - running 13: bean stitch along 5 thin line(s), 0.69 mm wide; at centre right
+  - running 14: running stitch along 3 thin line(s), 0.51 mm wide; at centre left
+  - running 15: running stitch along 3 thin line(s), 0.39 mm wide; at lower
+  - running 16: running stitch along 1 thin line(s), 0.29 mm wide; at lower left
+  - running 17: bean stitch along 3 thin line(s), 0.62 mm wide; at upper
+  - running 18: bean stitch along 3 thin line(s), 0.73 mm wide; at upper left
+  - running 19: bean stitch along 5 thin line(s), 0.69 mm wide; at centre left
+  - running 20: running stitch along 8 thin line(s), 0.58 mm wide; at upper
+  - running 21: running stitch along 5 thin line(s), 0.49 mm wide; at lower right
+  - running 22: bean stitch along 3 thin line(s), 0.67 mm wide; at upper left
+  - running 23: running stitch along 3 thin line(s), 0.29 mm wide; at lower right
+  - running 24: running stitch along 1 thin line(s), 0.36 mm wide; at lower
+  - running 25: running stitch along 1 thin line(s), 0.51 mm wide; at lower
+  - running 26: running stitch along 3 thin line(s), 0.51 mm wide; at upper right
+  - running 27: running stitch along 1 thin line(s), 0.40 mm wide; at centre right
+  - running 28: running stitch along 1 thin line(s), 0.21 mm wide; at lower
+  - running 29: running stitch along 3 thin line(s), 0.44 mm wide; at upper
+  - running 30: running stitch along 3 thin line(s), 0.46 mm wide; at lower
+  - running 31: running stitch along 4 thin line(s), 0.42 mm wide; at upper right
+  - running 32: running stitch along 3 thin line(s), 0.53 mm wide; at centre
+  - running 33: running stitch along 3 thin line(s), 0.51 mm wide; at upper right
+  - running 34: running stitch along 3 thin line(s), 0.43 mm wide; at upper
+  - running 35: running stitch along 3 thin line(s), 0.45 mm wide; at upper right
+  - running 36: running stitch along 3 thin line(s), 0.43 mm wide; at lower
+  - running 37: running stitch along 3 thin line(s), 0.48 mm wide; at upper
+  - running 38: running stitch along 5 thin line(s), 0.54 mm wide; at upper left
+  - running 39: running stitch along 3 thin line(s), 0.49 mm wide; at upper right
+  - running 40: running stitch along 3 thin line(s), 0.46 mm wide; at lower
+  - running 41: running stitch along 3 thin line(s), 0.45 mm wide; at upper left
+  - running 42: running stitch along 3 thin line(s), 0.39 mm wide; at centre left
+  - running 43: running stitch along 3 thin line(s), 0.42 mm wide; at lower left
+  - running 44: running stitch along 3 thin line(s), 0.47 mm wide; at centre right
+  - running 45: running stitch along 1 thin line(s), 0.30 mm wide; at upper
+  - running 46: running stitch along 3 thin line(s), 0.45 mm wide; at upper left
+  - running 47: running stitch along 3 thin line(s), 0.36 mm wide; at centre left
+  - running 48: running stitch along 3 thin line(s), 0.33 mm wide; at centre left
+  - running 49: running stitch along 1 thin line(s), 0.43 mm wide; at upper right
+  - running 50: running stitch along 3 thin line(s), 0.37 mm wide; at lower
+  - running 51: running stitch along 3 thin line(s), 0.49 mm wide; at upper right
+  - running 52: running stitch along 3 thin line(s), 0.45 mm wide; at lower right
+  - running 53: running stitch along 3 thin line(s), 0.39 mm wide; at upper left
+  - running 54: running stitch along 3 thin line(s), 0.37 mm wide; at upper right
+  - running 55: running stitch along 3 thin line(s), 0.41 mm wide; at centre left
+  - running 56: running stitch along 3 thin line(s), 0.56 mm wide; at upper
+  - running 57: running stitch along 3 thin line(s), 0.40 mm wide; at upper left
+  - running 58: running stitch along 3 thin line(s), 0.43 mm wide; at upper
+  - running 59: running stitch along 3 thin line(s), 0.46 mm wide; at lower right
+  - running 60: running stitch along 1 thin line(s), 0.33 mm wide; 158.6 mm2 thinner than 1.5 mm rendered as running/bean stitch in 60 piece(s); dropped 1 speck(s) under 1 mm; at upper
+  - satin 61: satin 2.6 mm wide, 28 mm long, 5 branch(es); at centre
+  - satin 62: satin 2.2 mm wide, 27 mm long, 5 branch(es); at upper right
+  - satin 63: satin 2.2 mm wide, 28 mm long, 6 branch(es); at centre right
+  - satin 64: satin 2.3 mm wide, 38 mm long, 21 branch(es); at centre left
+  - satin 65: satin 1.9 mm wide, 26 mm long, 6 branch(es); at upper left
+  - satin 66: satin 2.1 mm wide, 23 mm long, 6 branch(es); at lower
+  - satin 67: satin 2.1 mm wide, 21 mm long, 3 branch(es); at upper left
+  - satin 68: satin 1.9 mm wide, 23 mm long, 6 branch(es); at upper right
+  - satin 69: satin 2.2 mm wide, 21 mm long, 3 branch(es); at centre left
+  - satin 70: satin 2.1 mm wide, 23 mm long, 3 branch(es); at upper left
+  - satin 71: satin 1.9 mm wide, 23 mm long, 3 branch(es); at centre left
+  - satin 72: satin 1.9 mm wide, 26 mm long, 13 branch(es); at lower left
+  - satin 73: satin 2.1 mm wide, 25 mm long, 12 branch(es); at lower left
+  - satin 74: satin 2.1 mm wide, 23 mm long, 6 branch(es); at lower right
+  - satin 75: satin 1.9 mm wide, 20 mm long, 3 branch(es); at upper left
+  - satin 76: satin 1.8 mm wide, 22 mm long, 9 branch(es); at upper
+  - satin 77: satin 2.0 mm wide, 20 mm long, 6 branch(es); at upper right
+  - satin 78: satin 2.2 mm wide, 13 mm long, 1 branch(es); at centre
+  - satin 79: satin 2.2 mm wide, 12 mm long, 1 branch(es); at upper
+  - satin 80: satin 1.6 mm wide, 17 mm long, 7 branch(es); at upper
+  - satin 81: satin 2.0 mm wide, 15 mm long, 3 branch(es); at upper left
+  - satin 82: satin 1.8 mm wide, 15 mm long, 3 branch(es); at upper right
+  - satin 83: satin 1.9 mm wide, 17 mm long, 5 branch(es); at centre
+  - satin 84: satin 1.9 mm wide, 15 mm long, 3 branch(es); at centre right
+  - satin 85: satin 1.7 mm wide, 17 mm long, 5 branch(es); at upper
+  - satin 86: satin 1.6 mm wide, 17 mm long, 5 branch(es); at lower right
+  - satin 87: satin 2.1 mm wide, 10 mm long, 1 branch(es); at centre left
+  - satin 88: satin 2.2 mm wide, 10 mm long, 1 branch(es); at upper left
+  - satin 89: satin 2.0 mm wide, 11 mm long, 1 branch(es); at lower
+  - satin 90: satin 1.8 mm wide, 17 mm long, 12 branch(es); at upper
+  - satin 91: satin 1.9 mm wide, 9 mm long, 1 branch(es); at centre
+  - satin 92: satin 1.5 mm wide, 16 mm long, 14 branch(es); at upper right
+  - satin 93: satin 1.6 mm wide, 14 mm long, 5 branch(es); at centre left
+  - satin 94: satin 2.2 mm wide, 9 mm long, 1 branch(es); at upper right
+  - satin 95: satin 2.2 mm wide, 8 mm long, 1 branch(es); at upper
+  - satin 96: satin 2.1 mm wide, 9 mm long, 1 branch(es); at upper
+  - satin 97: satin 1.9 mm wide, 8 mm long, 1 branch(es); at upper left
+  - satin 98: satin 1.9 mm wide, 10 mm long, 3 branch(es); at lower
+  - satin 99: satin 1.9 mm wide, 8 mm long, 1 branch(es); at lower
+  - satin_fill 100: satin-style fill of a 3.6 mm blob; at lower right
+  - satin 101: satin 1.7 mm wide, 8 mm long, 1 branch(es); at upper
+  - satin 102: satin 1.6 mm wide, 8 mm long, 1 branch(es); at lower left
+  - satin 103: satin 1.2 mm wide, 10 mm long, 4 branch(es); at lower left
+  - satin 104: satin 1.8 mm wide, 7 mm long, 1 branch(es); at upper
+  - satin 105: satin 1.6 mm wide, 9 mm long, 1 branch(es); at centre right
+  - satin 106: satin 1.6 mm wide, 8 mm long, 1 branch(es); at centre right
+  - satin 107: satin 1.3 mm wide, 9 mm long, 3 branch(es); at centre right
+  - satin 108: satin 1.7 mm wide, 6 mm long, 1 branch(es); at upper right
+  - satin 109: satin 1.4 mm wide, 7 mm long, 1 branch(es); at centre right
+  - satin 110: satin 1.6 mm wide, 5 mm long, 1 branch(es); at centre right
+  - satin 111: satin 1.4 mm wide, 5 mm long, 1 branch(es); at centre left
+  - satin 112: satin 1.4 mm wide, 7 mm long, 3 branch(es); at lower left
+  - satin 113: satin 1.7 mm wide, 5 mm long, 1 branch(es); at centre right
+  - satin 114: satin 1.1 mm wide, 5 mm long, 1 branch(es); at upper
+  - satin 115: satin 1.1 mm wide, 5 mm long, 1 branch(es); at upper right
+  - satin 116: satin 1.7 mm wide, 4 mm long, 1 branch(es); at upper left
+  - satin 117: satin 1.6 mm wide, 4 mm long, 1 branch(es); at centre right
+  - satin 118: satin 1.6 mm wide, 4 mm long, 1 branch(es); at lower
+  - satin_fill 119: satin-style fill of a 2.0 mm blob; at upper
+  - satin_fill 120: satin-style fill of a 1.9 mm blob; at upper
+  - satin_fill 121: satin-style fill of a 1.8 mm blob; at upper
+  - satin_fill 122: satin-style fill of a 1.6 mm blob; at lower left
+  - satin_fill 123: satin-style fill of a 1.6 mm blob; at upper
+  - satin_fill 124: satin-style fill of a 1.7 mm blob; at upper left
+  - satin_fill 125: satin-style fill of a 1.7 mm blob; at upper
+- **royal blue**: 3 satin
+  - satin 1: satin 2.3 mm wide, 126 mm long, 1 branch(es); at centre
+  - satin 2: satin 2.2 mm wide, 126 mm long, 1 branch(es); at lower
+  - satin 3: satin 2.2 mm wide, 126 mm long, 1 branch(es); at upper
+- **white**: 9 running, 3 fill, 8 satin
+  - running 1: bean stitch along 5 thin line(s), 0.60 mm wide; at lower
+  - running 2: running stitch along 3 thin line(s), 0.39 mm wide; at upper right
+  - running 3: running stitch along 3 thin line(s), 0.43 mm wide; at lower
+  - running 4: running stitch along 1 thin line(s), 0.38 mm wide; at lower
+  - running 5: bean stitch along 3 thin line(s), 0.62 mm wide; at lower right
+  - running 6: running stitch along 1 thin line(s), 0.29 mm wide; at upper right
+  - running 7: running stitch along 3 thin line(s), 0.37 mm wide; at centre left
+  - running 8: running stitch along 1 thin line(s), 0.32 mm wide; at centre
+  - running 9: running stitch along 1 thin line(s), 0.36 mm wide; 11.8 mm2 thinner than 1.5 mm rendered as running/bean stitch in 9 piece(s); at lower left
+  - fill 10: tatami fill 510 mm2; at upper
+  - fill 11: tatami fill 504 mm2; at centre
+  - fill 12: tatami fill 361 mm2; at lower
+  - satin 13: satin 2.7 mm wide, 57 mm long, 1 branch(es); at upper
+  - satin 14: satin 2.6 mm wide, 57 mm long, 1 branch(es); at centre
+  - satin 15: satin 2.6 mm wide, 57 mm long, 1 branch(es); at lower
+  - satin 16: satin 4.0 mm wide, 18 mm long, 3 branch(es); at lower right
+  - satin 17: satin 2.1 mm wide, 14 mm long, 2 branch(es); at lower left
+  - satin 18: satin 2.1 mm wide, 16 mm long, 4 branch(es); at lower right
+  - satin 19: satin 2.0 mm wide, 7 mm long, 3 branch(es); at upper left
+  - satin 20: satin 1.3 mm wide, 5 mm long, 1 branch(es); at upper right
+- **red**: 30 satin_fill, 1 satin
+  - satin_fill 1: satin-style fill of a 4.0 mm blob; at upper
+  - satin_fill 2: satin-style fill of a 4.3 mm blob; at centre
+  - satin_fill 3: satin-style fill of a 3.8 mm blob; at upper
+  - satin_fill 4: satin-style fill of a 3.9 mm blob; at upper right
+  - satin_fill 5: satin-style fill of a 3.7 mm blob; at upper right
+  - satin_fill 6: satin-style fill of a 3.8 mm blob; at upper right
+  - satin_fill 7: satin-style fill of a 3.7 mm blob; at centre right
+  - satin_fill 8: satin-style fill of a 4.0 mm blob; at upper
+  - satin 9: satin 2.7 mm wide, 8 mm long, 3 branch(es); at centre right
+  - satin_fill 10: satin-style fill of a 3.9 mm blob; at centre right
+  - satin_fill 11: satin-style fill of a 3.8 mm blob; at centre right
+  - satin_fill 12: satin-style fill of a 3.5 mm blob; at centre
+  - satin_fill 13: satin-style fill of a 3.6 mm blob; at centre left
+  - satin_fill 14: satin-style fill of a 3.5 mm blob; at lower right
+  - satin_fill 15: satin-style fill of a 3.7 mm blob; at upper right
+  - satin_fill 16: satin-style fill of a 3.5 mm blob; at centre
+  - satin_fill 17: satin-style fill of a 3.5 mm blob; at centre left
+  - satin_fill 18: satin-style fill of a 3.2 mm blob; at centre right
+  - satin_fill 19: satin-style fill of a 3.4 mm blob; at upper right
+  - satin_fill 20: satin-style fill of a 3.4 mm blob; at centre right
+  - satin_fill 21: satin-style fill of a 3.4 mm blob; at lower right
+  - satin_fill 22: satin-style fill of a 3.2 mm blob; at upper
+  - satin_fill 23: satin-style fill of a 3.1 mm blob; at lower
+  - satin_fill 24: satin-style fill of a 3.0 mm blob; at lower
+  - satin_fill 25: satin-style fill of a 3.1 mm blob; at lower
+  - satin_fill 26: satin-style fill of a 3.5 mm blob; at lower
+  - satin_fill 27: satin-style fill of a 3.0 mm blob; at lower right
+  - satin_fill 28: satin-style fill of a 2.6 mm blob; at lower
+  - satin_fill 29: satin-style fill of a 2.9 mm blob; at centre right
+  - satin_fill 30: satin-style fill of a 2.8 mm blob; at lower right
+  - satin_fill 31: satin-style fill of a 2.1 mm blob; at centre right
+- **dark green**: 83 running, 32 satin, 22 satin_fill
+  - running 1: running stitch along 27 thin line(s), 0.49 mm wide; at lower left
+  - running 2: bean stitch along 9 thin line(s), 0.63 mm wide; at upper right
+  - running 3: bean stitch along 9 thin line(s), 0.66 mm wide; at upper right
+  - running 4: running stitch along 7 thin line(s), 0.50 mm wide; at upper right
+  - running 5: running stitch along 12 thin line(s), 0.50 mm wide; at upper right
+  - running 6: running stitch along 9 thin line(s), 0.48 mm wide; at upper
+  - running 7: running stitch along 9 thin line(s), 0.41 mm wide; at centre right
+  - running 8: running stitch along 5 thin line(s), 0.50 mm wide; at centre left
+  - running 9: running stitch along 9 thin line(s), 0.43 mm wide; at upper
+  - running 10: running stitch along 5 thin line(s), 0.46 mm wide; at centre right
+  - running 11: running stitch along 5 thin line(s), 0.50 mm wide; at upper
+  - running 12: running stitch along 3 thin line(s), 0.46 mm wide; at centre
+  - running 13: running stitch along 5 thin line(s), 0.49 mm wide; at upper
+  - running 14: running stitch along 5 thin line(s), 0.42 mm wide; at upper left
+  - running 15: running stitch along 3 thin line(s), 0.40 mm wide; at upper left
+  - running 16: running stitch along 5 thin line(s), 0.44 mm wide; at lower left
+  - running 17: running stitch along 3 thin line(s), 0.43 mm wide; at centre left
+  - running 18: running stitch along 5 thin line(s), 0.41 mm wide; at upper
+  - running 19: running stitch along 3 thin line(s), 0.47 mm wide; at centre right
+  - running 20: running stitch along 3 thin line(s), 0.36 mm wide; at centre left
+  - running 21: running stitch along 3 thin line(s), 0.39 mm wide; at centre right
+  - running 22: running stitch along 1 thin line(s), 0.10 mm wide; at lower right
+  - running 23: running stitch along 3 thin line(s), 0.41 mm wide; at upper left
+  - running 24: running stitch along 7 thin line(s), 0.47 mm wide; at lower right
+  - running 25: running stitch along 5 thin line(s), 0.31 mm wide; at upper
+  - running 26: running stitch along 1 thin line(s), 0.27 mm wide; at upper left
+  - running 27: running stitch along 1 thin line(s), 0.41 mm wide; at upper left
+  - running 28: running stitch along 3 thin line(s), 0.41 mm wide; at upper
+  - running 29: running stitch along 1 thin line(s), 0.31 mm wide; at lower right
+  - running 30: running stitch along 1 thin line(s), 0.36 mm wide; at lower
+  - running 31: running stitch along 3 thin line(s), 0.55 mm wide; at upper right
+  - running 32: bean stitch along 5 thin line(s), 0.65 mm wide; at upper right
+  - running 33: running stitch along 1 thin line(s), 0.23 mm wide; at centre right
+  - running 34: running stitch along 1 thin line(s), 0.33 mm wide; at centre left
+  - running 35: bean stitch along 5 thin line(s), 0.68 mm wide; at upper right
+  - running 36: running stitch along 3 thin line(s), 0.42 mm wide; at centre left
+  - running 37: running stitch along 3 thin line(s), 0.45 mm wide; at lower left
+  - running 38: running stitch along 1 thin line(s), 0.44 mm wide; at centre
+  - running 39: running stitch along 1 thin line(s), 0.30 mm wide; at lower right
+  - running 40: running stitch along 1 thin line(s), 0.26 mm wide; at upper right
+  - running 41: running stitch along 1 thin line(s), 0.10 mm wide; at centre
+  - running 42: bean stitch along 5 thin line(s), 0.65 mm wide; at upper left
+  - running 43: running stitch along 1 thin line(s), 0.31 mm wide; at lower
+  - running 44: running stitch along 1 thin line(s), 0.31 mm wide; at lower left
+  - running 45: running stitch along 5 thin line(s), 0.57 mm wide; at centre
+  - running 46: running stitch along 5 thin line(s), 0.57 mm wide; at centre
+  - running 47: running stitch along 1 thin line(s), 0.59 mm wide; at centre left
+  - running 48: running stitch along 6 thin line(s), 0.45 mm wide; at centre right
+  - running 49: running stitch along 3 thin line(s), 0.41 mm wide; at centre right
+  - running 50: bean stitch along 5 thin line(s), 0.64 mm wide; at upper
+  - running 51: running stitch along 1 thin line(s), 0.24 mm wide; at lower left
+  - running 52: running stitch along 1 thin line(s), 0.19 mm wide; at upper left
+  - running 53: running stitch along 5 thin line(s), 0.54 mm wide; at centre
+  - running 54: running stitch along 4 thin line(s), 0.50 mm wide; at upper
+  - running 55: running stitch along 1 thin line(s), 0.30 mm wide; at lower
+  - running 56: running stitch along 3 thin line(s), 0.48 mm wide; at centre left
+  - running 57: running stitch along 1 thin line(s), 0.21 mm wide; at upper left
+  - running 58: running stitch along 5 thin line(s), 0.48 mm wide; at lower left
+  - running 59: running stitch along 1 thin line(s), 0.26 mm wide; at upper
+  - running 60: running stitch along 3 thin line(s), 0.31 mm wide; at lower right
+  - running 61: running stitch along 3 thin line(s), 0.34 mm wide; at lower left
+  - running 62: running stitch along 3 thin line(s), 0.57 mm wide; at lower
+  - running 63: running stitch along 1 thin line(s), 0.35 mm wide; at upper right
+  - running 64: running stitch along 1 thin line(s), 0.10 mm wide; at upper
+  - running 65: running stitch along 5 thin line(s), 0.40 mm wide; at upper
+  - running 66: running stitch along 4 thin line(s), 0.56 mm wide; at upper
+  - running 67: running stitch along 3 thin line(s), 0.43 mm wide; at centre
+  - running 68: bean stitch along 3 thin line(s), 0.67 mm wide; at centre
+  - running 69: running stitch along 1 thin line(s), 0.40 mm wide; at lower
+  - running 70: running stitch along 3 thin line(s), 0.21 mm wide; at upper right
+  - running 71: running stitch along 5 thin line(s), 0.43 mm wide; at centre right
+  - running 72: running stitch along 3 thin line(s), 0.56 mm wide; at centre
+  - running 73: running stitch along 3 thin line(s), 0.39 mm wide; at lower right
+  - running 74: running stitch along 1 thin line(s), 0.10 mm wide; at upper right
+  - running 75: running stitch along 3 thin line(s), 0.49 mm wide; at lower right
+  - running 76: running stitch along 3 thin line(s), 0.45 mm wide; at centre
+  - running 77: running stitch along 3 thin line(s), 0.49 mm wide; at centre right
+  - running 78: running stitch along 1 thin line(s), 0.30 mm wide; at centre left
+  - running 79: running stitch along 3 thin line(s), 0.44 mm wide; at lower
+  - running 80: running stitch along 1 thin line(s), 0.41 mm wide; at centre
+  - running 81: running stitch along 1 thin line(s), 0.57 mm wide; at lower
+  - running 82: bean stitch along 1 thin line(s), 0.61 mm wide; at centre right
+  - running 83: running stitch along 1 thin line(s), 0.44 mm wide; 259.2 mm2 thinner than 1.5 mm rendered as running/bean stitch in 83 piece(s); dropped 2 speck(s) under 1 mm; at centre right
+  - satin 84: satin 2.8 mm wide, 52 mm long, 14 branch(es); at centre
+  - satin 85: satin 4.0 mm wide, 36 mm long, 7 branch(es); at centre right
+  - satin 86: satin 2.8 mm wide, 38 mm long, 7 branch(es); at lower right
+  - satin 87: satin 3.3 mm wide, 26 mm long, 5 branch(es); at centre left
+  - satin 88: satin 2.5 mm wide, 25 mm long, 3 branch(es); at centre right
+  - satin 89: satin 3.5 mm wide, 23 mm long, 7 branch(es); at lower right
+  - satin 90: satin 2.7 mm wide, 23 mm long, 5 branch(es); at lower
+  - satin 91: satin 1.7 mm wide, 21 mm long, 7 branch(es); at lower left
+  - satin 92: satin 3.3 mm wide, 11 mm long, 1 branch(es); at lower
+  - satin_fill 93: satin-style fill of a 4.4 mm blob; at upper right
+  - satin 94: satin 1.9 mm wide, 11 mm long, 1 branch(es); at lower
+  - satin 95: satin 2.2 mm wide, 14 mm long, 5 branch(es); at lower left
+  - satin 96: satin 2.4 mm wide, 12 mm long, 3 branch(es); at upper left
+  - satin 97: satin 1.9 mm wide, 10 mm long, 1 branch(es); at centre
+  - satin 98: satin 2.9 mm wide, 10 mm long, 3 branch(es); at centre
+  - satin 99: satin 1.8 mm wide, 11 mm long, 2 branch(es); at lower right
+  - satin 100: satin 2.1 mm wide, 8 mm long, 1 branch(es); at upper left
+  - satin 101: satin 2.1 mm wide, 12 mm long, 7 branch(es); at lower left
+  - satin 102: satin 2.1 mm wide, 9 mm long, 3 branch(es); at lower
+  - satin_fill 103: satin-style fill of a 3.2 mm blob; at upper right
+  - satin_fill 104: satin-style fill of a 3.4 mm blob; at upper left
+  - satin 105: satin 1.4 mm wide, 7 mm long, 1 branch(es); at lower
+  - satin 106: satin 1.5 mm wide, 9 mm long, 5 branch(es); at upper right
+  - satin 107: satin 1.8 mm wide, 7 mm long, 1 branch(es); at upper
+  - satin_fill 108: satin-style fill of a 3.5 mm blob; at upper left
+  - satin 109: satin 2.0 mm wide, 7 mm long, 3 branch(es); at centre
+  - satin 110: satin 1.6 mm wide, 6 mm long, 1 branch(es); at lower
+  - satin_fill 111: satin-style fill of a 2.7 mm blob; at centre
+  - satin 112: satin 1.4 mm wide, 7 mm long, 3 branch(es); at centre left
+  - satin_fill 113: satin-style fill of a 2.7 mm blob; at upper right
+  - satin 114: satin 1.5 mm wide, 6 mm long, 3 branch(es); at lower right
+  - satin 115: satin 1.6 mm wide, 5 mm long, 1 branch(es); at upper
+  - satin_fill 116: satin-style fill of a 2.6 mm blob; at centre
+  - satin 117: satin 1.4 mm wide, 5 mm long, 1 branch(es); at upper
+  - satin_fill 118: satin-style fill of a 2.9 mm blob; at upper
+  - satin 119: satin 1.7 mm wide, 5 mm long, 1 branch(es); at centre left
+  - satin 120: satin 1.3 mm wide, 5 mm long, 1 branch(es); at centre
+  - satin 121: satin 1.4 mm wide, 6 mm long, 3 branch(es); at upper
+  - satin_fill 122: satin-style fill of a 2.4 mm blob; at upper
+  - satin_fill 123: satin-style fill of a 2.3 mm blob; at upper
+  - satin 124: satin 1.3 mm wide, 4 mm long, 1 branch(es); at centre right
+  - satin 125: satin 1.1 mm wide, 5 mm long, 3 branch(es); at lower
+  - satin_fill 126: satin-style fill of a 1.8 mm blob; at upper right
+  - satin_fill 127: satin-style fill of a 2.1 mm blob; at centre
+  - satin_fill 128: satin-style fill of a 1.8 mm blob; at centre left
+  - satin_fill 129: satin-style fill of a 1.9 mm blob; at lower
+  - satin_fill 130: satin-style fill of a 2.0 mm blob; at upper
+  - satin_fill 131: satin-style fill of a 2.0 mm blob; at lower left
+  - satin_fill 132: satin-style fill of a 1.9 mm blob; at upper
+  - satin_fill 133: satin-style fill of a 1.7 mm blob; at upper right
+  - satin_fill 134: satin-style fill of a 1.8 mm blob; at upper
+  - satin_fill 135: satin-style fill of a 1.6 mm blob; at upper right
+  - satin_fill 136: satin-style fill of a 1.6 mm blob; at upper
+  - satin_fill 137: satin-style fill of a 1.5 mm blob; at upper right
+- **black**: 117 running, 9 satin, 34 satin_fill
+  - running 1: bean stitch along 62 thin line(s), 0.75 mm wide; at lower
+  - running 2: bean stitch along 64 thin line(s), 0.75 mm wide; at centre right
+  - running 3: bean stitch along 63 thin line(s), 0.74 mm wide; at upper left
+  - running 4: bean stitch along 31 thin line(s), 0.81 mm wide; at upper
+  - running 5: bean stitch along 57 thin line(s), 0.81 mm wide; at lower right
+  - running 6: bean stitch along 33 thin line(s), 0.77 mm wide; at centre
+  - running 7: bean stitch along 47 thin line(s), 0.80 mm wide; at upper right
+  - running 8: bean stitch along 33 thin line(s), 0.74 mm wide; at lower
+  - running 9: bean stitch along 27 thin line(s), 0.74 mm wide; at centre
+  - running 10: bean stitch along 60 thin line(s), 0.71 mm wide; at upper
+  - running 11: bean stitch along 32 thin line(s), 0.79 mm wide; at centre left
+  - running 12: bean stitch along 25 thin line(s), 0.77 mm wide; at upper
+  - running 13: bean stitch along 34 thin line(s), 0.82 mm wide; at upper right
+  - running 14: bean stitch along 26 thin line(s), 0.69 mm wide; at centre right
+  - running 15: bean stitch along 17 thin line(s), 0.75 mm wide; at upper right
+  - running 16: bean stitch along 28 thin line(s), 0.75 mm wide; at lower right
+  - running 17: bean stitch along 11 thin line(s), 0.74 mm wide; at upper
+  - running 18: bean stitch along 19 thin line(s), 0.72 mm wide; at lower
+  - running 19: bean stitch along 9 thin line(s), 0.90 mm wide; at upper left
+  - running 20: bean stitch along 21 thin line(s), 0.73 mm wide; at centre left
+  - running 21: bean stitch along 5 thin line(s), 0.70 mm wide; at centre right
+  - running 22: bean stitch along 5 thin line(s), 0.75 mm wide; at upper left
+  - running 23: bean stitch along 5 thin line(s), 0.73 mm wide; at centre left
+  - running 24: bean stitch along 5 thin line(s), 0.75 mm wide; at centre left
+  - running 25: bean stitch along 7 thin line(s), 0.64 mm wide; at centre right
+  - running 26: bean stitch along 15 thin line(s), 0.78 mm wide; at lower right
+  - running 27: bean stitch along 5 thin line(s), 0.77 mm wide; at lower left
+  - running 28: bean stitch along 4 thin line(s), 0.82 mm wide; at upper right
+  - running 29: bean stitch along 5 thin line(s), 0.68 mm wide; at lower right
+  - running 30: bean stitch along 5 thin line(s), 0.65 mm wide; at lower right
+  - running 31: bean stitch along 5 thin line(s), 0.79 mm wide; at upper right
+  - running 32: bean stitch along 3 thin line(s), 0.67 mm wide; at centre right
+  - running 33: bean stitch along 9 thin line(s), 0.82 mm wide; at centre left
+  - running 34: bean stitch along 7 thin line(s), 0.72 mm wide; at upper left
+  - running 35: bean stitch along 9 thin line(s), 0.69 mm wide; at centre right
+  - running 36: bean stitch along 5 thin line(s), 0.78 mm wide; at lower left
+  - running 37: running stitch along 5 thin line(s), 0.58 mm wide; at centre left
+  - running 38: running stitch along 1 thin line(s), 0.50 mm wide; at centre
+  - running 39: bean stitch along 5 thin line(s), 0.68 mm wide; at upper right
+  - running 40: running stitch along 5 thin line(s), 0.54 mm wide; at lower
+  - running 41: bean stitch along 7 thin line(s), 0.65 mm wide; at lower left
+  - running 42: bean stitch along 7 thin line(s), 0.63 mm wide; at centre left
+  - running 43: bean stitch along 3 thin line(s), 0.64 mm wide; at upper
+  - running 44: running stitch along 5 thin line(s), 0.58 mm wide; at upper left
+  - running 45: bean stitch along 5 thin line(s), 0.66 mm wide; at centre
+  - running 46: bean stitch along 5 thin line(s), 0.63 mm wide; at upper
+  - running 47: bean stitch along 5 thin line(s), 0.65 mm wide; at centre
+  - running 48: bean stitch along 5 thin line(s), 0.64 mm wide; at centre right
+  - running 49: running stitch along 5 thin line(s), 0.51 mm wide; at upper
+  - running 50: bean stitch along 5 thin line(s), 0.62 mm wide; at centre right
+  - running 51: running stitch along 5 thin line(s), 0.59 mm wide; at upper right
+  - running 52: bean stitch along 5 thin line(s), 0.68 mm wide; at upper right
+  - running 53: running stitch along 1 thin line(s), 0.30 mm wide; at lower right
+  - running 54: bean stitch along 5 thin line(s), 0.62 mm wide; at centre
+  - running 55: running stitch along 5 thin line(s), 0.58 mm wide; at centre
+  - running 56: bean stitch along 5 thin line(s), 0.61 mm wide; at upper
+  - running 57: bean stitch along 5 thin line(s), 0.62 mm wide; at centre right
+  - running 58: running stitch along 5 thin line(s), 0.47 mm wide; at centre
+  - running 59: bean stitch along 5 thin line(s), 0.62 mm wide; at upper
+  - running 60: bean stitch along 5 thin line(s), 0.63 mm wide; at upper
+  - running 61: running stitch along 5 thin line(s), 0.57 mm wide; at lower right
+  - running 62: bean stitch along 3 thin line(s), 0.63 mm wide; at upper right
+  - running 63: running stitch along 5 thin line(s), 0.57 mm wide; at upper
+  - running 64: bean stitch along 5 thin line(s), 0.64 mm wide; at centre left
+  - running 65: running stitch along 5 thin line(s), 0.58 mm wide; at centre left
+  - running 66: bean stitch along 5 thin line(s), 0.61 mm wide; at lower
+  - running 67: bean stitch along 5 thin line(s), 0.61 mm wide; at lower
+  - running 68: bean stitch along 5 thin line(s), 0.62 mm wide; at centre
+  - running 69: running stitch along 5 thin line(s), 0.57 mm wide; at centre
+  - running 70: running stitch along 5 thin line(s), 0.54 mm wide; at centre
+  - running 71: bean stitch along 5 thin line(s), 0.61 mm wide; at upper
+  - running 72: running stitch along 5 thin line(s), 0.58 mm wide; at centre right
+  - running 73: running stitch along 5 thin line(s), 0.57 mm wide; at centre
+  - running 74: running stitch along 3 thin line(s), 0.52 mm wide; at centre
+  - running 75: running stitch along 5 thin line(s), 0.54 mm wide; at centre left
+  - running 76: running stitch along 3 thin line(s), 0.53 mm wide; at upper
+  - running 77: running stitch along 5 thin line(s), 0.60 mm wide; at lower
+  - running 78: running stitch along 5 thin line(s), 0.59 mm wide; at centre
+  - running 79: bean stitch along 5 thin line(s), 0.65 mm wide; at lower
+  - running 80: bean stitch along 5 thin line(s), 0.63 mm wide; at upper left
+  - running 81: running stitch along 5 thin line(s), 0.59 mm wide; at centre
+  - running 82: running stitch along 5 thin line(s), 0.58 mm wide; at lower
+  - running 83: bean stitch along 5 thin line(s), 0.65 mm wide; at lower
+  - running 84: running stitch along 5 thin line(s), 0.58 mm wide; at centre
+  - running 85: bean stitch along 5 thin line(s), 0.64 mm wide; at lower
+  - running 86: bean stitch along 5 thin line(s), 0.61 mm wide; at upper
+  - running 87: bean stitch along 5 thin line(s), 0.61 mm wide; at lower left
+  - running 88: running stitch along 5 thin line(s), 0.60 mm wide; at upper
+  - running 89: running stitch along 3 thin line(s), 0.50 mm wide; at centre
+  - running 90: bean stitch along 5 thin line(s), 0.63 mm wide; at centre
+  - running 91: running stitch along 5 thin line(s), 0.59 mm wide; at lower left
+  - running 92: running stitch along 5 thin line(s), 0.59 mm wide; at upper right
+  - running 93: running stitch along 5 thin line(s), 0.58 mm wide; at centre
+  - running 94: running stitch along 5 thin line(s), 0.60 mm wide; at lower
+  - running 95: running stitch along 5 thin line(s), 0.58 mm wide; at lower
+  - running 96: running stitch along 3 thin line(s), 0.50 mm wide; at lower left
+  - running 97: bean stitch along 5 thin line(s), 0.61 mm wide; at centre left
+  - running 98: bean stitch along 5 thin line(s), 0.64 mm wide; at lower left
+  - running 99: running stitch along 5 thin line(s), 0.56 mm wide; at centre right
+  - running 100: running stitch along 5 thin line(s), 0.59 mm wide; at lower left
+  - running 101: running stitch along 3 thin line(s), 0.46 mm wide; at centre left
+  - running 102: running stitch along 5 thin line(s), 0.48 mm wide; at centre right
+  - running 103: running stitch along 5 thin line(s), 0.43 mm wide; at centre
+  - running 104: running stitch along 5 thin line(s), 0.59 mm wide; at upper right
+  - running 105: running stitch along 5 thin line(s), 0.47 mm wide; at upper
+  - running 106: running stitch along 3 thin line(s), 0.56 mm wide; at upper left
+  - running 107: running stitch along 5 thin line(s), 0.55 mm wide; at lower left
+  - running 108: running stitch along 5 thin line(s), 0.50 mm wide; at lower left
+  - running 109: running stitch along 5 thin line(s), 0.53 mm wide; at centre right
+  - running 110: running stitch along 5 thin line(s), 0.48 mm wide; at upper left
+  - running 111: running stitch along 1 thin line(s), 0.45 mm wide; at upper left
+  - running 112: running stitch along 3 thin line(s), 0.47 mm wide; at lower left
+  - running 113: running stitch along 5 thin line(s), 0.46 mm wide; at lower right
+  - running 114: running stitch along 3 thin line(s), 0.39 mm wide; at upper
+  - running 115: running stitch along 5 thin line(s), 0.39 mm wide; at centre left
+  - running 116: running stitch along 5 thin line(s), 0.45 mm wide; at lower right
+  - running 117: running stitch along 1 thin line(s), 0.23 mm wide; 1663.2 mm2 thinner than 1.5 mm rendered as running/bean stitch in 117 piece(s); at lower right
+  - satin 118: satin 2.5 mm wide, 340 mm long, 57 branch(es); at centre
+  - satin 119: satin 2.6 mm wide, 266 mm long, 26 branch(es); at centre
+  - satin 120: satin 2.7 mm wide, 256 mm long, 31 branch(es); at upper
+  - satin 121: satin 2.3 mm wide, 164 mm long, 12 branch(es); at lower left
+  - satin 122: satin 3.3 mm wide, 64 mm long, 10 branch(es); at lower right
+  - satin 123: satin 2.4 mm wide, 18 mm long, 1 branch(es); at lower right
+  - satin_fill 124: satin-style fill of a 3.9 mm blob; at upper left
+  - satin 125: satin 2.5 mm wide, 9 mm long, 3 branch(es); at lower left
+  - satin_fill 126: satin-style fill of a 3.5 mm blob; at centre right
+  - satin_fill 127: satin-style fill of a 3.0 mm blob; at centre left
+  - satin 128: satin 1.9 mm wide, 6 mm long, 1 branch(es); at upper left
+  - satin_fill 129: satin-style fill of a 2.5 mm blob; at upper
+  - satin_fill 130: satin-style fill of a 2.3 mm blob; at centre right
+  - satin_fill 131: satin-style fill of a 1.9 mm blob; at centre left
+  - satin_fill 132: satin-style fill of a 1.9 mm blob; at lower right
+  - satin 133: satin 1.6 mm wide, 4 mm long, 3 branch(es); at lower
+  - satin_fill 134: satin-style fill of a 1.9 mm blob; at upper
+  - satin_fill 135: satin-style fill of a 1.8 mm blob; at centre
+  - satin_fill 136: satin-style fill of a 1.9 mm blob; at centre
+  - satin_fill 137: satin-style fill of a 1.8 mm blob; at upper
+  - satin_fill 138: satin-style fill of a 1.7 mm blob; at centre left
+  - satin_fill 139: satin-style fill of a 1.7 mm blob; at lower
+  - satin_fill 140: satin-style fill of a 1.7 mm blob; at upper left
+  - satin_fill 141: satin-style fill of a 1.7 mm blob; at lower right
+  - satin_fill 142: satin-style fill of a 1.7 mm blob; at lower left
+  - satin_fill 143: satin-style fill of a 1.7 mm blob; at lower left
+  - satin_fill 144: satin-style fill of a 1.6 mm blob; at upper right
+  - satin_fill 145: satin-style fill of a 1.6 mm blob; at centre left
+  - satin_fill 146: satin-style fill of a 1.6 mm blob; at upper
+  - satin_fill 147: satin-style fill of a 1.7 mm blob; at lower left
+  - satin_fill 148: satin-style fill of a 1.7 mm blob; at lower left
+  - satin_fill 149: satin-style fill of a 1.6 mm blob; at upper right
+  - satin_fill 150: satin-style fill of a 1.6 mm blob; at upper
+  - satin_fill 151: satin-style fill of a 1.6 mm blob; at lower
+  - satin_fill 152: satin-style fill of a 1.7 mm blob; at lower right
+  - satin_fill 153: satin-style fill of a 1.6 mm blob; at centre left
+  - satin_fill 154: satin-style fill of a 1.6 mm blob; at centre
+  - satin_fill 155: satin-style fill of a 1.6 mm blob; at upper right
+  - satin_fill 156: satin-style fill of a 1.5 mm blob; at upper
+  - satin_fill 157: satin-style fill of a 1.6 mm blob; at upper right
+  - satin_fill 158: satin-style fill of a 1.5 mm blob; at lower
+  - satin_fill 159: satin-style fill of a 1.5 mm blob; at upper right
+  - satin_fill 160: satin-style fill of a 1.5 mm blob; at upper left
+
+## Dropped slivers
+
+241 region(s) under 1.0 mm2 were dropped, 27.6 mm2 in total:
+- olive: 0.0 mm2 at (-21.6, -31.8) mm
+- olive: 0.0 mm2 at (-21.6, -31.8) mm
+- olive: 0.02 mm2 at (-18.6, -9.5) mm
+- olive: 0.0 mm2 at (-16.0, -8.7) mm
+- olive: 0.0 mm2 at (-16.0, -8.6) mm
+- olive: 0.62 mm2 at (-34.5, 42.2) mm
+- olive: 0.01 mm2 at (5.5, -42.4) mm
+- olive: 0.36 mm2 at (-15.5, -8.9) mm
+- olive: 0.21 mm2 at (17.8, 55.2) mm
+- olive: 0.01 mm2 at (28.8, -11.2) mm
+- olive: 0.06 mm2 at (27.8, -11.1) mm
+- olive: 0.77 mm2 at (34.7, 7.4) mm
+- olive: 0.0 mm2 at (35.0, 10.5) mm
+- olive: 0.02 mm2 at (21.3, 34.8) mm
+- olive: 0.19 mm2 at (20.2, 58.3) mm
+- white: 0.02 mm2 at (-4.8, -51.6) mm
+- white: 0.56 mm2 at (-13.3, -33.0) mm
+- white: 0.87 mm2 at (-18.7, 9.1) mm
+- white: 0.57 mm2 at (-20.7, 9.7) mm
+- white: 0.4 mm2 at (-19.6, 13.2) mm
+- white: 0.37 mm2 at (-35.1, 42.3) mm
+- white: 0.2 mm2 at (-12.6, 51.5) mm
+- white: 0.36 mm2 at (19.6, -37.0) mm
+- dark green: 0.13 mm2 at (-30.0, -55.4) mm
+- dark green: 0.0 mm2 at (-32.3, -47.3) mm
+- dark green: 0.0 mm2 at (-32.3, -47.2) mm
+- dark green: 0.07 mm2 at (-32.7, -47.0) mm
+- dark green: 0.04 mm2 at (-33.1, -46.4) mm
+- dark green: 0.0 mm2 at (-33.2, -46.3) mm
+- dark green: 0.07 mm2 at (-33.4, -46.0) mm
+- dark green: 0.02 mm2 at (-33.9, -45.3) mm
+- dark green: 0.03 mm2 at (-30.9, -6.0) mm
+- dark green: 0.06 mm2 at (-29.8, -6.0) mm
+- dark green: 0.0 mm2 at (-29.4, -5.8) mm
+- dark green: 0.12 mm2 at (-28.7, -5.7) mm
+- dark green: 0.02 mm2 at (-48.1, -0.8) mm
+- dark green: 0.0 mm2 at (-34.9, -0.7) mm
+- dark green: 0.01 mm2 at (-48.3, -0.5) mm
+- dark green: 0.04 mm2 at (-48.7, 0.1) mm
+- dark green: 0.11 mm2 at (-31.7, 2.5) mm
+- ... and 201 more (see params_used.yaml / run log)
+
+## Warnings
+
+- black: 2.6% of its artwork (106 mm2) has no stitches; see coverage_gaps.png and the Coverage section of report.md
+
+## Density
+
+- Mean 3.3 and max 17.0 needle penetrations per mm2 (lock stitches excluded); 322 cell(s) over 8 per mm2 flagged in density_map.png
+  - hot spot 17/mm2 at (19.4, -67.8) mm
+  - hot spot 16/mm2 at (35.4, 8.2) mm
+  - hot spot 15/mm2 at (-12.6, -56.8) mm
+  - hot spot 15/mm2 at (40.4, -32.8) mm
+  - hot spot 15/mm2 at (43.4, -29.8) mm
+  - hot spot 15/mm2 at (5.4, -2.8) mm
+  - hot spot 15/mm2 at (0.4, 7.2) mm
+  - hot spot 15/mm2 at (31.4, 40.2) mm
+
+## Coverage
+
+Share of each colour's artwork that its stitches cover (thread width 0.4 mm):
+
+- olive: 98.8% covered (21.1 of 1747 mm2 uncovered)
+- royal blue: 99.9% covered (0.6 of 785 mm2 uncovered)
+- white: 99.8% covered (4.6 of 2013 mm2 uncovered)
+- red: 99.4% covered (3.0 of 489 mm2 uncovered)
+- dark green: 98.3% covered (24.8 of 1451 mm2 uncovered)
+- black: 97.4% covered (106.4 of 4137 mm2 uncovered)
+
+Uncovered patches over 1.0 mm2 (largest first, see coverage_gaps.png):
+
+- olive: 1.2 mm2, up to 0.4 mm wide, at (-16.4, -43.4) mm
+- black: 1.2 mm2, up to 0.3 mm wide, at (-47.4, -4.5) mm
+- dark green: 1.0 mm2, up to 0.4 mm wide, at (-11.1, -47.7) mm
+
+## Fabric preset and stabilizer
+
+- Preset: **woven** (Woven (twill, canvas, denim))
+- Stabilizer: One layer of medium-weight tear-away under the fabric (two layers on light cotton or linen). Heavy canvas or denim is stable enough on its own with one layer.
+- Needle: 75/11 embroidery needle (sharp point); 90/14 on heavy canvas or denim.
+- Topping: None needed.
+- Hooping: Hoop the fabric with the stabilizer underneath. Drum-tight, grain straight.
+
+## Validation
+
+- PASS
+- ok: DST extents 100.2 x 152.6 mm fit hoop 200x200 (as labelled) with 10 mm clearance
+- ok: DST is centred on the hoop origin (centre offset 0.00, 0.00 mm)
+- ok: 5 colour changes = 6 thread groups - 1
+- ok: longest stitch 6.91 mm <= 12.1 mm
+- ok: shortest non-lock stitch 0.28 mm (>= 0.3 mm before rounding to the 0.1 mm DST grid)
+- ok: per-stop stitch counts in the DST match the plan: [6180, 2147, 4307, 1385, 4825, 16138]
+- ok: total stitch count 34982 agrees between DST, plan and report
+- ok: thread sheet stop counts match the plan
+- ok: procedure run sheet stop counts match the plan
+- ok: no colour group appears in two separate blocks
+
+## Files
+
+- `groups_preview.png`
+- `groups_suggested.yaml`
+- `design.dst`
+- `design.pes`
+- `design.exp`
+- `preview_realistic.png`
+- `preview_vs_art.png`
+- `preview_per_color/`
+- `density_map.png`
+- `coverage_gaps.png`
+- `simulator.html`
+- `thread_sheet.md`
+- `thread_sheet.pdf`
+- `procedure.md`
+- `procedure.html`
+- `procedure.pdf`
+- `params_used.yaml`
+- `report.md`

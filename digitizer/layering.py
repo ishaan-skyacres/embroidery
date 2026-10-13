@@ -200,14 +200,19 @@ def build_regions(doc: Document, groups: list[ColorGroup], member_to_group: dict
     # outline-like groups (mostly thinner than the minimum feature width) are stitched last so
     # they cover the edges of the fills, whatever the drawing order says
     thin_fraction: dict[str, float] = {}
+    line_ratio: dict[str, float] = {}
     for g in active:
         raw = unary_union(regions[g.name]) if regions[g.name] else MultiPolygon()
         if raw.is_empty:
             thin_fraction[g.name] = 0.0
+            line_ratio[g.name] = 0.0
             continue
         wide = G.opening(raw, min_feature / 2.0)
         thin_fraction[g.name] = 1.0 - wide.area / raw.area
-    outline_groups = {n for n, f in thin_fraction.items() if f >= 0.5}
+        # perimeter^2 / (4 pi area): 1 for a disc, hundreds for line work; independent of the design size
+        line_ratio[g.name] = raw.length ** 2 / (4.0 * 3.141592653589793 * raw.area)
+    outline_groups = {n for n in thin_fraction
+                      if thin_fraction[n] >= 0.5 or (line_ratio[n] >= 500 and thin_fraction[n] >= 0.3)}
     for outline in list(outline_groups):
         reversed_from = []
         for other in names:
@@ -217,8 +222,9 @@ def build_regions(doc: Document, groups: list[ColorGroup], member_to_group: dict
                 reversed_from.append(other)
                 del rank_edges[(outline, other)]
             rank_edges[(other, outline)] = rank_edges.get((other, outline), 0.0)
-        layout.log.append(f"{outline} is mostly thin lines ({thin_fraction[outline]*100:.0f}% thinner than {min_feature} mm): "
-                          f"stitched last as an outline group" + (f" (drawn under {', '.join(reversed_from)})" if reversed_from else "") + ".")
+        layout.log.append(f"{outline} is line work ({thin_fraction[outline]*100:.0f}% thinner than {min_feature} mm, "
+                          f"perimeter^2/4piA = {line_ratio[outline]:.0f}): stitched last as an outline group"
+                          + (f" (drawn under {', '.join(reversed_from)})" if reversed_from else "") + ".")
     order = _topological_order(active, rank_edges, regions)
     if manual_order:
         known = [n for n in manual_order if n in names]

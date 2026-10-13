@@ -26,3 +26,10 @@ emblem and wordmark, with the "AGROTECHNOLOGIES INC" line removed) at 3 in
 ```
 digitize input/skyacres_logo.svg --height-mm 76.2 --hoop 140x140 --fabric woven --engine python --name "SkyAcres logo" --out examples/skyacres_logo_3in
 ```
+
+`rack3_6in/` is the rack at 6 in (152.4 mm) tall for the 200 x 200 mm hoop,
+woven preset:
+
+```
+digitize input/rack3.svg --height-mm 152.4 --hoop 200x200 --fabric woven --engine python --name "tomato rack 6in" --out examples/rack3_6in
+```
