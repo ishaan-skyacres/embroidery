@@ -178,7 +178,7 @@ fill, and a messy file with 12 near-duplicate shades plus a background.
 digitizer/            the package (cli, pipeline, svg_input, colors, layering, classify, engine/, engine_inkstitch, preview, simulator, outputs, procedure, validate)
 digitizer/palettes/   thread charts (GPL files from Ink/Stitch, GPL-3.0)
 params.yaml           all parameters (documented in PARAMS.md)
-scripts/              install_inkstitch.sh, make_wx_stub.py
+scripts/              install.sh, install_inkstitch.sh, make_wx_stub.py, text_to_svg.py (text in a font file to SVG)
 tests/                pytest suite, fixtures and golden summaries
 input/rack3.svg       the sample artwork (rack.svg is the earlier version); examples/ holds its outputs
 ```

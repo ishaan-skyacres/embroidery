@@ -1,0 +1,18 @@
+# Colour groups. Edit members/names/skip/thread, then re-run with --groups this_file.
+# 'order' is the sewing order (first = stitched first). The tool warns if it stitches a lower layer over an upper one.
+groups:
+  olive:
+    members:
+    - '#679943'
+    color: '#679943'
+    thread:
+      brand: Isacord Polyester
+      name: Lime
+      code: '5633'
+    thread_options:
+    - Isacord Polyester 5633 Lime (dE 2.4)
+    - Madeira Polyneon 1848 Meadow (dE 3.5)
+    - Robison-Anton Polyester 5814 Neon Green (dE 4.3)
+    area_mm2: 3828.9
+order:
+- olive

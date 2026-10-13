@@ -1,0 +1,138 @@
+# Exact parameters used for this run (re-run with --params this_file to reproduce; edit to tweak)
+machine:
+  hoops_mm:
+    280x200:
+    - 280
+    - 200
+    200x200:
+    - 200
+    - 200
+    140x140:
+    - 140
+    - 140
+  default_hoop: 280x200
+  hoop_clearance_mm: 10
+  max_stitch_mm: 12.1
+  max_speed_spm: 860
+  estimate_speed_spm: 600
+  thread_change_minutes: 2.0
+  trims_at_color_change: true
+  trims_on_jump: false
+  trim_jump_threshold_mm: 3.0
+general:
+  min_stitch_length_mm: 0.3
+  lock_stitch:
+    style: half_stitch
+    length_mm: 0.7
+  overlap_mm: 0.4
+  simplify_tolerance_mm: 0.1
+  sliver_area_mm2: 1.0
+  min_feature_width_mm: 1.5
+fill:
+  row_spacing_mm: 0.4
+  under_layer_row_spacing_mm: 0.5
+  max_stitch_length_mm: 3.8
+  min_row_end_stitch_mm: 1.0
+  staggers: 4
+  angle_deg: 45
+  adjacent_angle_offset_deg: 30
+  skip_last: true
+  pull_compensation_mm: 0.25
+  underlay:
+    enabled: true
+    angle_offset_deg: 90
+    row_spacing_factor: 3
+    max_stitch_length_mm: 3.8
+    inset_mm: 0.5
+    layers: 1
+    edge_run_min_size_mm: 15
+    edge_run_inset_mm: 0.5
+    edge_run_stitch_length_mm: 2.5
+    edge_run_always: false
+    skip_last: false
+  underpath: true
+  travel_stitch_length_mm: 2.0
+satin:
+  spacing_mm: 0.4
+  min_width_mm: 1.5
+  max_width_mm: 7.0
+  split_stitch_length_mm: 7.0
+  convert_to_fill_width_mm: 10.0
+  branching_to_fill_width_mm: 4.0
+  pull_compensation_mm: 0.2
+  underlay:
+    strength: normal
+    none_below_mm: 2.0
+    center_walk_below_mm: 4.0
+    contour_below_mm: 7.0
+    center_walk_stitch_length_mm: 2.0
+    contour_inset_mm: 0.4
+    contour_stitch_length_mm: 2.5
+    zigzag_spacing_mm: 3.0
+    zigzag_inset_mm: 0.2
+  short_stitch_inset_percent: 15
+running:
+  stitch_length_mm: 2.2
+  curve_stitch_length_mm: 1.5
+  tolerance_mm: 0.15
+  min_stitch_length_mm: 0.5
+  bean_repeats: 1
+  bean_min_stroke_width_mm: 0.6
+detail:
+  min_text_height_mm: 5.0
+  thin_feature_mm: 1.5
+  thin_feature_action: running
+  thicken_above_mm: 1.0
+sequence:
+  within_color: center_out
+  big_fill_mm2: 400
+  optimize_tour: true
+  end_near_next_start: false
+  travel_under_cover: true
+  max_travel_mm: 25
+  trim_after_object: false
+  trim_before_color_change: true
+colors:
+  merge_threshold_de: 8
+  refuse_merge_de: 25
+  palettes:
+  - InkStitch Madeira Polyneon
+  - InkStitch Isacord Polyester
+  - InkStitch Robison-Anton Polyester
+  background_coverage: 0.9
+preview:
+  thread_width_mm: 0.4
+  render_dpi: 300
+  density_cell_mm: 1.0
+  density_hotspot_per_mm2: 8
+  fabric_color: '#d9d4c7'
+  coverage_warn_percent: 2.0
+  coverage_gap_mm2: 1.0
+knockdown:
+  enabled: false
+  row_spacing_mm: 1.0
+  max_stitch_length_mm: 3.0
+  expand_mm: 1.0
+fabric: woven
+fabric_preset:
+  label: Woven (twill, canvas, denim)
+  overrides: {}
+  stabilizer: One layer of medium-weight tear-away under the fabric (two layers on
+    light cotton or linen). Heavy canvas or denim is stable enough on its own with
+    one layer.
+  needle: 75/11 embroidery needle (sharp point); 90/14 on heavy canvas or denim.
+  bobbin: 60 wt pre-wound bobbin, white (black if the back will show on a dark garment).
+  topping: None needed.
+  hooping: Hoop the fabric with the stabilizer underneath. Drum-tight, grain straight.
+run:
+  input: input/acres_derania.svg
+  size_mm: 190.91162805621886
+  hoop: 280x200
+  fabric: woven
+  engine: python
+  colors: null
+  groups_file: null
+  group_args: []
+  fabric_color: null
+  stitch_background: false
+applied_overrides: []

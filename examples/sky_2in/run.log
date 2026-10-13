@@ -1,0 +1,15 @@
+Parsed sky.svg: 3 shapes, canvas 2849.0 x 1923.0 units
+Colour groups: olive #679943 <- #679943
+Requested height 50.8 mm -> longest side 76.2 mm
+Scaled by 0.0275 mm/unit to 76.2 x 50.8 mm; hoop 140x140 as labelled, 31.9 mm to the nearest hoop edge (clearance 10 mm).
+Sewing order: olive
+olive: 3 thin line(s) in 1 piece(s) (1.1 mm2, mean width 0.46 mm) -> running/bean stitch
+olive: branching shape 5.1 mm wide (6 junctions) -> tatami fill
+olive: branching shape 5.2 mm wide (2 junctions) -> tatami fill
+olive: satin 5.4 mm wide x 64 mm, 1 branch(es)
+olive: satin 4.2 mm wide x 14 mm, 1 branch(es)
+olive: satin 3.2 mm wide x 15 mm, 1 branch(es)
+olive: 7 uncovered patch(es) over 1.0 mm2 filled after the main objects
+olive: 174 mm of travel runs inside the fill; 206 mm of travel runs inside the fill
+olive: 3152 stitches, 12 jumps, 4 trims
+Re-centred the stitches on the hoop origin by (0.15, -0.10) mm
