@@ -18,3 +18,11 @@ digitize input/rack3.svg --size-mm 120 --engine python --name "tomato rack" --ou
 Open `preview_realistic.png`, `coverage_gaps.png`, `simulator.html` and
 `procedure.html` to see what the tool produces. `report.md` lists every
 digitizing decision. `input/rack.svg` is the earlier version of the artwork.
+
+`skyacres_logo_3in/` is the SkyAcres logo (`input/skyacres_logo.svg`: the
+emblem and wordmark, with the "AGROTECHNOLOGIES INC" line removed) at 3 in
+(76.2 mm) tall for the 200 x 200 mm hoop on woven fabric, one colour:
+
+```
+digitize input/skyacres_logo.svg --height-mm 76.2 --hoop 200x200 --fabric woven --engine python --name "SkyAcres logo" --out examples/skyacres_logo_3in
+```

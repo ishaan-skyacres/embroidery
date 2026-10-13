@@ -75,7 +75,7 @@ validation; compare `report.md` of each.
 
 ```bash
 digitize input/rack3.svg --size-mm 120 --out out/           # defaults: hoop 280x200, woven
-digitize logo.ai --size-mm 90 --hoop 140x140 --fabric knit --out out_logo/
+digitize logo.ai --height-mm 76.2 --hoop 140x140 --fabric knit --out out_logo/   # --height-mm / --width-mm instead of --size-mm
 digitize art.svg --size-mm 120 --review-groups --out out/    # stop after colour grouping
 digitize art.svg --size-mm 120 --groups out/groups_suggested.yaml --out out/
 digitize art.svg --size-mm 120 --colors 5 --merge-threshold 10 --out out/

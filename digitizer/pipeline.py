@@ -28,6 +28,8 @@ from .validate import ValidationError, validate
 class RunOptions:
     input: Path
     size_mm: float = 120.0
+    height_mm: float | None = None    # overrides size_mm: final height of the stitched artwork
+    width_mm: float | None = None     # overrides size_mm: final width
     hoop: str | None = None
     fabric: str = "woven"
     out: Path = Path("out")
@@ -200,6 +202,15 @@ def run(opts: RunOptions) -> RunResult:
     stitched_shapes = [s for s in doc.shapes if not next(g for g in groups if g.name == member_to_group[s.color]).skip]
     if not stitched_shapes:
         raise ValueError("Every colour is skipped; nothing to stitch.")
+    if opts.height_mm or opts.width_mm:
+        from shapely.ops import unary_union as _uu
+        b = _uu([sh.geom for sh in stitched_shapes]).bounds
+        w_u, h_u = b[2] - b[0], b[3] - b[1]
+        if opts.height_mm:
+            opts.size_mm = float(opts.height_mm) * max(w_u, h_u) / h_u
+        else:
+            opts.size_mm = float(opts.width_mm) * max(w_u, h_u) / w_u
+        log.append(f"Requested {'height' if opts.height_mm else 'width'} {opts.height_mm or opts.width_mm} mm -> longest side {opts.size_mm:.1f} mm")
     layout = compute_layout(doc, stitched_shapes, opts.size_mm, params, opts.hoop)
     min_text = float(params["detail.min_text_height_mm"])
     for text, size in text_sizes:

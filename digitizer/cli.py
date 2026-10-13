@@ -13,6 +13,8 @@ from .validate import ValidationError
 @click.command(context_settings={"help_option_names": ["-h", "--help"], "max_content_width": 110})
 @click.argument("input", type=click.Path(exists=True, dir_okay=False, path_type=Path))
 @click.option("--size-mm", type=float, default=120.0, show_default=True, help="Longest side of the design in mm.")
+@click.option("--height-mm", type=float, default=None, help="Final height in mm (overrides --size-mm).")
+@click.option("--width-mm", type=float, default=None, help="Final width in mm (overrides --size-mm).")
 @click.option("--hoop", type=str, default=None, help="Hoop WxH in mm (280x200, 200x200, 140x140 or custom). Default from params.yaml.")
 @click.option("--fabric", type=click.Choice(["woven", "knit", "pique", "terry", "fleece"]), default="woven", show_default=True)
 @click.option("--out", type=click.Path(path_type=Path), default=Path("out"), show_default=True, help="Output folder.")
@@ -30,11 +32,11 @@ from .validate import ValidationError
 @click.option("--knockdown", is_flag=True, help="Add a low-density knockdown layer under the whole design (terry, fleece).")
 @click.option("--name", type=str, default=None, help="Design name used in the documents (default: input file name).")
 @click.option("--quiet", is_flag=True)
-def main(input, size_mm, hoop, fabric, out, engine, colors, merge_threshold, groups_file, group_args, review_groups,
+def main(input, size_mm, height_mm, width_mm, hoop, fabric, out, engine, colors, merge_threshold, groups_file, group_args, review_groups,
          fabric_color, stitch_background, params_file, sets, knockdown, name, quiet):
     """Digitize a flat-colour vector file (SVG/AI/EPS/PDF) into a Tajima DST for the Poolin EOC06, with previews,
     a thread sheet, a stitching procedure and a quality report."""
-    opts = RunOptions(input=input, size_mm=size_mm, hoop=hoop, fabric=fabric, out=out, engine=engine, colors=colors,
+    opts = RunOptions(input=input, size_mm=size_mm, height_mm=height_mm, width_mm=width_mm, hoop=hoop, fabric=fabric, out=out, engine=engine, colors=colors,
                       merge_threshold=merge_threshold, groups_file=groups_file, group_args=list(group_args),
                       review_groups=review_groups, fabric_color=fabric_color, stitch_background=stitch_background,
                       params_file=params_file, sets=list(sets), knockdown=knockdown, name=name, quiet=quiet)
