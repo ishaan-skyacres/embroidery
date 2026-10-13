@@ -1,0 +1,373 @@
+Parsed rack3_x2_gap5.svg: 872 shapes, canvas 659.7 x 484.2 units
+Colour groups: black #090b09 <- #090b09; white #fcfcfb <- #fcfcfb; olive #739a5f <- #739a5f; dark green #264725 <- #264725; royal blue #3953a4 <- #3953a4; red #e92024 <- #e92024
+Requested height 132.08 mm -> longest side 179.9 mm
+Scaled by 0.2728 mm/unit to 179.9 x 132.1 mm; hoop 200x200 as labelled, 10.0 mm to the nearest hoop edge (clearance 10 mm).
+black is line work (52% thinner than 1.5 mm, perimeter^2/4piA = 752): stitched last as an outline group (drawn under white, olive, dark green, royal blue, red).
+Layering conflict: dark green is above olive over 9 mm2 but below it over 3 mm2 at (-76.2, -35.3) mm, 0.2 mm2, (16.3, -35.3) mm, 0.2 mm2, (61.8, 35.8) mm, 0.2 mm2. Resolved by knocking dark green out where olive is drawn on top, so each colour is still one block. Delta E between them is 30.5.
+Sewing order: olive -> dark green -> royal blue -> white -> red -> black
+olive: 68 feature(s) between 1.0 and 1.5 mm wide (322.7 mm2) thickened to 1.5 mm and stitched as satin
+olive: 399 thin line(s) in 117 piece(s) (296.1 mm2, mean width 0.50 mm) -> running/bean stitch
+olive: satin 2.3 mm wide x 24 mm, 5 branch(es)
+olive: satin 2.3 mm wide x 24 mm, 5 branch(es)
+olive: satin 2.0 mm wide x 24 mm, 5 branch(es)
+olive: satin 2.0 mm wide x 24 mm, 5 branch(es)
+olive: satin 2.3 mm wide x 24 mm, 7 branch(es)
+olive: satin 2.3 mm wide x 24 mm, 7 branch(es)
+olive: satin 2.0 mm wide x 19 mm, 1 branch(es)
+olive: satin 2.0 mm wide x 19 mm, 1 branch(es)
+olive: satin 2.1 mm wide x 31 mm, 15 branch(es)
+olive: satin 2.1 mm wide x 31 mm, 15 branch(es)
+olive: satin 1.9 mm wide x 19 mm, 5 branch(es)
+olive: satin 1.9 mm wide x 19 mm, 5 branch(es)
+olive: satin 2.0 mm wide x 18 mm, 3 branch(es)
+olive: satin 2.0 mm wide x 18 mm, 3 branch(es)
+olive: satin 1.7 mm wide x 25 mm, 11 branch(es)
+olive: satin 1.7 mm wide x 25 mm, 11 branch(es)
+olive: satin 1.5 mm wide x 21 mm, 10 branch(es)
+olive: satin 1.5 mm wide x 21 mm, 10 branch(es)
+olive: satin 1.9 mm wide x 21 mm, 11 branch(es)
+olive: satin 1.9 mm wide x 21 mm, 11 branch(es)
+olive: satin 1.8 mm wide x 20 mm, 7 branch(es)
+olive: satin 1.8 mm wide x 20 mm, 7 branch(es)
+olive: satin 1.7 mm wide x 19 mm, 9 branch(es)
+olive: satin 1.7 mm wide x 19 mm, 9 branch(es)
+olive: satin 1.7 mm wide x 16 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 16 mm, 1 branch(es)
+olive: satin 1.5 mm wide x 20 mm, 16 branch(es)
+olive: satin 1.5 mm wide x 20 mm, 16 branch(es)
+olive: satin 2.0 mm wide x 14 mm, 3 branch(es)
+olive: satin 2.0 mm wide x 14 mm, 3 branch(es)
+olive: satin 1.6 mm wide x 16 mm, 5 branch(es)
+olive: satin 1.6 mm wide x 16 mm, 5 branch(es)
+olive: satin 1.9 mm wide x 14 mm, 3 branch(es)
+olive: satin 1.9 mm wide x 14 mm, 3 branch(es)
+olive: satin 2.0 mm wide x 11 mm, 1 branch(es)
+olive: satin 2.0 mm wide x 11 mm, 1 branch(es)
+olive: satin 1.5 mm wide x 17 mm, 9 branch(es)
+olive: satin 1.5 mm wide x 17 mm, 9 branch(es)
+olive: satin 1.9 mm wide x 10 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 10 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 15 mm, 9 branch(es)
+olive: satin 1.7 mm wide x 15 mm, 9 branch(es)
+olive: satin 1.8 mm wide x 14 mm, 6 branch(es)
+olive: satin 1.8 mm wide x 14 mm, 6 branch(es)
+olive: satin 1.8 mm wide x 15 mm, 5 branch(es)
+olive: satin 1.8 mm wide x 15 mm, 5 branch(es)
+olive: satin 1.9 mm wide x 10 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 10 mm, 1 branch(es)
+olive: satin 2.0 mm wide x 11 mm, 3 branch(es)
+olive: satin 2.0 mm wide x 11 mm, 3 branch(es)
+olive: satin 1.8 mm wide x 12 mm, 3 branch(es)
+olive: satin 1.8 mm wide x 12 mm, 3 branch(es)
+olive: satin 1.9 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.8 mm wide x 8 mm, 1 branch(es)
+olive: satin 1.8 mm wide x 8 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.5 mm wide x 13 mm, 9 branch(es)
+olive: satin 1.5 mm wide x 13 mm, 9 branch(es)
+olive: satin 2.0 mm wide x 7 mm, 1 branch(es)
+olive: satin 2.0 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 11 mm, 8 branch(es)
+olive: satin 1.4 mm wide x 11 mm, 8 branch(es)
+olive: satin 2.0 mm wide x 7 mm, 1 branch(es)
+olive: satin 2.0 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.5 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.5 mm wide x 9 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 7 mm, 1 branch(es)
+olive: blob 14 mm2, 3.2 mm wide -> satin-style fill at 90 deg
+olive: blob 14 mm2, 3.2 mm wide -> satin-style fill at 90 deg
+olive: satin 2.1 mm wide x 6 mm, 1 branch(es)
+olive: satin 2.1 mm wide x 6 mm, 1 branch(es)
+olive: satin 1.8 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.8 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 7 mm, 1 branch(es)
+olive: blob 12 mm2, 3.1 mm wide -> satin-style fill at 33 deg
+olive: blob 12 mm2, 3.1 mm wide -> satin-style fill at 33 deg
+olive: satin 1.7 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 7 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 6 mm, 1 branch(es)
+olive: satin 1.7 mm wide x 6 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.9 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.3 mm wide x 8 mm, 3 branch(es)
+olive: satin 1.3 mm wide x 8 mm, 3 branch(es)
+olive: satin 1.4 mm wide x 6 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 6 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.3 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.3 mm wide x 5 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 4 mm, 1 branch(es)
+olive: satin 1.6 mm wide x 4 mm, 1 branch(es)
+olive: satin 1.3 mm wide x 5 mm, 3 branch(es)
+olive: satin 1.3 mm wide x 5 mm, 3 branch(es)
+olive: satin 1.4 mm wide x 4 mm, 1 branch(es)
+olive: satin 1.4 mm wide x 4 mm, 1 branch(es)
+olive: blob 5 mm2, 1.8 mm wide -> satin-style fill at 43 deg
+olive: blob 5 mm2, 1.8 mm wide -> satin-style fill at 43 deg
+olive: blob 4 mm2, 1.7 mm wide -> satin-style fill at 167 deg
+olive: blob 4 mm2, 1.7 mm wide -> satin-style fill at 167 deg
+olive: blob 4 mm2, 1.7 mm wide -> satin-style fill at 75 deg
+olive: blob 4 mm2, 1.7 mm wide -> satin-style fill at 75 deg
+olive: blob 3 mm2, 1.6 mm wide -> satin-style fill at 86 deg
+olive: blob 3 mm2, 1.6 mm wide -> satin-style fill at 86 deg
+olive: blob 2 mm2, 1.6 mm wide -> satin-style fill at 27 deg
+olive: blob 2 mm2, 1.6 mm wide -> satin-style fill at 32 deg
+dark green: 26 feature(s) between 1.0 and 1.5 mm wide (110.7 mm2) thickened to 1.5 mm and stitched as satin
+dark green: 628 thin line(s) in 164 piece(s) (445.9 mm2, mean width 0.42 mm) -> running/bean stitch
+dark green: satin 2.4 mm wide x 40 mm, 10 branch(es)
+dark green: satin 2.4 mm wide x 40 mm, 10 branch(es)
+dark green: satin 3.6 mm wide x 31 mm, 7 branch(es)
+dark green: satin 3.6 mm wide x 31 mm, 7 branch(es)
+dark green: satin 2.5 mm wide x 32 mm, 7 branch(es)
+dark green: satin 2.5 mm wide x 32 mm, 7 branch(es)
+dark green: satin 3.1 mm wide x 21 mm, 3 branch(es)
+dark green: satin 3.1 mm wide x 21 mm, 3 branch(es)
+dark green: satin 3.1 mm wide x 20 mm, 7 branch(es)
+dark green: satin 3.1 mm wide x 20 mm, 7 branch(es)
+dark green: satin 2.2 mm wide x 19 mm, 6 branch(es)
+dark green: satin 2.2 mm wide x 19 mm, 6 branch(es)
+dark green: satin 2.2 mm wide x 20 mm, 5 branch(es)
+dark green: satin 2.2 mm wide x 20 mm, 5 branch(es)
+dark green: satin 1.8 mm wide x 23 mm, 12 branch(es)
+dark green: satin 1.8 mm wide x 23 mm, 12 branch(es)
+dark green: satin 2.8 mm wide x 9 mm, 1 branch(es)
+dark green: satin 2.8 mm wide x 9 mm, 1 branch(es)
+dark green: satin 1.7 mm wide x 19 mm, 9 branch(es)
+dark green: satin 1.7 mm wide x 19 mm, 9 branch(es)
+dark green: blob 22 mm2, 3.9 mm wide -> satin-style fill at 145 deg
+dark green: blob 22 mm2, 3.9 mm wide -> satin-style fill at 145 deg
+dark green: satin 1.8 mm wide x 13 mm, 6 branch(es)
+dark green: satin 1.8 mm wide x 13 mm, 6 branch(es)
+dark green: satin 2.0 mm wide x 12 mm, 5 branch(es)
+dark green: satin 2.0 mm wide x 12 mm, 5 branch(es)
+dark green: satin 2.2 mm wide x 9 mm, 3 branch(es)
+dark green: satin 2.2 mm wide x 9 mm, 3 branch(es)
+dark green: blob 15 mm2, 3.4 mm wide -> satin-style fill at 76 deg
+dark green: blob 15 mm2, 3.4 mm wide -> satin-style fill at 76 deg
+dark green: satin 1.8 mm wide x 8 mm, 1 branch(es)
+dark green: satin 1.8 mm wide x 8 mm, 1 branch(es)
+dark green: satin 1.5 mm wide x 9 mm, 4 branch(es)
+dark green: satin 1.5 mm wide x 9 mm, 4 branch(es)
+dark green: satin 1.9 mm wide x 7 mm, 1 branch(es)
+dark green: satin 1.9 mm wide x 7 mm, 1 branch(es)
+dark green: satin 1.5 mm wide x 9 mm, 3 branch(es)
+dark green: satin 1.5 mm wide x 9 mm, 3 branch(es)
+dark green: blob 13 mm2, 3.1 mm wide -> satin-style fill at 43 deg
+dark green: blob 13 mm2, 3.1 mm wide -> satin-style fill at 43 deg
+dark green: blob 12 mm2, 2.8 mm wide -> satin-style fill at 67 deg
+dark green: blob 12 mm2, 2.8 mm wide -> satin-style fill at 67 deg
+dark green: blob 12 mm2, 2.9 mm wide -> satin-style fill at 147 deg
+dark green: blob 12 mm2, 2.9 mm wide -> satin-style fill at 147 deg
+dark green: satin 1.7 mm wide x 5 mm, 1 branch(es)
+dark green: satin 1.7 mm wide x 5 mm, 1 branch(es)
+dark green: blob 9 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+dark green: blob 9 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+dark green: satin 1.3 mm wide x 5 mm, 1 branch(es)
+dark green: satin 1.3 mm wide x 5 mm, 1 branch(es)
+dark green: satin 1.9 mm wide x 5 mm, 3 branch(es)
+dark green: satin 1.9 mm wide x 5 mm, 3 branch(es)
+dark green: satin 1.8 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.8 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.5 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.5 mm wide x 4 mm, 1 branch(es)
+dark green: blob 7 mm2, 2.3 mm wide -> satin-style fill at 72 deg
+dark green: blob 7 mm2, 2.3 mm wide -> satin-style fill at 72 deg
+dark green: satin 1.6 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.6 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.4 mm wide x 5 mm, 1 branch(es)
+dark green: satin 1.4 mm wide x 5 mm, 1 branch(es)
+dark green: satin 1.1 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.1 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.2 mm wide x 4 mm, 1 branch(es)
+dark green: satin 1.2 mm wide x 4 mm, 1 branch(es)
+dark green: blob 6 mm2, 2.3 mm wide -> satin-style fill at 62 deg
+dark green: blob 6 mm2, 2.3 mm wide -> satin-style fill at 62 deg
+dark green: blob 6 mm2, 2.1 mm wide -> satin-style fill at 120 deg
+dark green: blob 6 mm2, 2.1 mm wide -> satin-style fill at 120 deg
+dark green: blob 5 mm2, 1.9 mm wide -> satin-style fill at 112 deg
+dark green: blob 5 mm2, 1.9 mm wide -> satin-style fill at 112 deg
+dark green: blob 5 mm2, 2.1 mm wide -> satin-style fill at 142 deg
+dark green: blob 5 mm2, 2.1 mm wide -> satin-style fill at 142 deg
+dark green: blob 5 mm2, 1.8 mm wide -> satin-style fill at 30 deg
+dark green: blob 5 mm2, 1.8 mm wide -> satin-style fill at 30 deg
+dark green: blob 5 mm2, 2.0 mm wide -> satin-style fill at 147 deg
+dark green: blob 5 mm2, 2.0 mm wide -> satin-style fill at 147 deg
+dark green: satin 1.2 mm wide x 3 mm, 1 branch(es)
+dark green: satin 1.2 mm wide x 3 mm, 1 branch(es)
+dark green: blob 4 mm2, 1.8 mm wide -> satin-style fill at 1 deg
+dark green: blob 4 mm2, 1.8 mm wide -> satin-style fill at 1 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 43 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 43 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 14 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 14 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 44 deg
+dark green: blob 3 mm2, 1.7 mm wide -> satin-style fill at 44 deg
+dark green: blob 2 mm2, 1.7 mm wide -> satin-style fill at 168 deg
+dark green: blob 2 mm2, 1.7 mm wide -> satin-style fill at 168 deg
+dark green: blob 2 mm2, 1.5 mm wide -> satin-style fill at 3 deg
+dark green: blob 2 mm2, 1.5 mm wide -> satin-style fill at 3 deg
+royal blue: satin 2.0 mm wide x 109 mm, 1 branch(es)
+royal blue: satin 2.0 mm wide x 109 mm, 1 branch(es)
+royal blue: satin 1.9 mm wide x 109 mm, 1 branch(es)
+royal blue: satin 1.9 mm wide x 109 mm, 1 branch(es)
+royal blue: satin 2.0 mm wide x 109 mm, 1 branch(es)
+royal blue: satin 2.0 mm wide x 109 mm, 1 branch(es)
+white: 6 feature(s) between 1.0 and 1.5 mm wide (13.9 mm2) thickened to 1.5 mm and stitched as satin
+white: 66 thin line(s) in 18 piece(s) (38.5 mm2, mean width 0.55 mm) -> running/bean stitch
+white: tatami fill 382 mm2
+white: tatami fill 382 mm2
+white: tatami fill 381 mm2
+white: tatami fill 381 mm2
+white: branching shape 5.1 mm wide (3 junctions) -> tatami fill
+white: branching shape 5.1 mm wide (3 junctions) -> tatami fill
+white: satin 2.3 mm wide x 50 mm, 1 branch(es)
+white: satin 2.3 mm wide x 50 mm, 1 branch(es)
+white: satin 2.3 mm wide x 50 mm, 1 branch(es)
+white: satin 2.3 mm wide x 50 mm, 1 branch(es)
+white: satin 2.2 mm wide x 50 mm, 1 branch(es)
+white: satin 2.2 mm wide x 50 mm, 1 branch(es)
+white: satin 3.6 mm wide x 27 mm, 5 branch(es)
+white: satin 3.6 mm wide x 27 mm, 5 branch(es)
+white: satin 3.9 mm wide x 15 mm, 3 branch(es)
+white: satin 3.9 mm wide x 15 mm, 3 branch(es)
+white: blob 12 mm2, 3.3 mm wide -> satin-style fill at 97 deg
+white: blob 12 mm2, 3.3 mm wide -> satin-style fill at 97 deg
+white: blob 11 mm2, 3.2 mm wide -> satin-style fill at 35 deg
+white: blob 11 mm2, 3.2 mm wide -> satin-style fill at 35 deg
+white: blob 8 mm2, 3.0 mm wide -> satin-style fill at 122 deg
+white: blob 8 mm2, 3.0 mm wide -> satin-style fill at 122 deg
+white: satin 1.2 mm wide x 4 mm, 1 branch(es)
+white: satin 1.2 mm wide x 4 mm, 1 branch(es)
+red: blob 16 mm2, 3.5 mm wide -> satin-style fill at 74 deg
+red: blob 16 mm2, 3.5 mm wide -> satin-style fill at 74 deg
+red: blob 15 mm2, 3.7 mm wide -> satin-style fill at 143 deg
+red: blob 15 mm2, 3.7 mm wide -> satin-style fill at 142 deg
+red: blob 14 mm2, 3.3 mm wide -> satin-style fill at 96 deg
+red: blob 14 mm2, 3.3 mm wide -> satin-style fill at 96 deg
+red: blob 14 mm2, 3.4 mm wide -> satin-style fill at 79 deg
+red: blob 14 mm2, 3.4 mm wide -> satin-style fill at 79 deg
+red: blob 14 mm2, 3.2 mm wide -> satin-style fill at 71 deg
+red: blob 14 mm2, 3.2 mm wide -> satin-style fill at 71 deg
+red: blob 13 mm2, 3.4 mm wide -> satin-style fill at 68 deg
+red: blob 13 mm2, 3.4 mm wide -> satin-style fill at 68 deg
+red: blob 13 mm2, 3.2 mm wide -> satin-style fill at 85 deg
+red: blob 13 mm2, 3.2 mm wide -> satin-style fill at 85 deg
+red: blob 13 mm2, 3.5 mm wide -> satin-style fill at 69 deg
+red: blob 13 mm2, 3.5 mm wide -> satin-style fill at 69 deg
+red: blob 13 mm2, 3.0 mm wide -> satin-style fill at 84 deg
+red: blob 13 mm2, 3.0 mm wide -> satin-style fill at 84 deg
+red: blob 13 mm2, 3.3 mm wide -> satin-style fill at 78 deg
+red: blob 13 mm2, 3.3 mm wide -> satin-style fill at 78 deg
+red: blob 12 mm2, 3.3 mm wide -> satin-style fill at 100 deg
+red: blob 12 mm2, 3.3 mm wide -> satin-style fill at 100 deg
+red: blob 12 mm2, 3.2 mm wide -> satin-style fill at 60 deg
+red: blob 12 mm2, 3.2 mm wide -> satin-style fill at 60 deg
+red: blob 12 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+red: blob 12 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+red: blob 12 mm2, 3.1 mm wide -> satin-style fill at 82 deg
+red: blob 12 mm2, 3.1 mm wide -> satin-style fill at 82 deg
+red: blob 12 mm2, 3.2 mm wide -> satin-style fill at 77 deg
+red: blob 12 mm2, 3.2 mm wide -> satin-style fill at 79 deg
+red: blob 11 mm2, 3.1 mm wide -> satin-style fill at 107 deg
+red: blob 11 mm2, 3.1 mm wide -> satin-style fill at 107 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 61 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 61 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 71 deg
+red: blob 11 mm2, 2.7 mm wide -> satin-style fill at 110 deg
+red: blob 11 mm2, 2.7 mm wide -> satin-style fill at 110 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 68 deg
+red: blob 11 mm2, 3.0 mm wide -> satin-style fill at 68 deg
+red: blob 11 mm2, 2.9 mm wide -> satin-style fill at 85 deg
+red: blob 11 mm2, 2.9 mm wide -> satin-style fill at 85 deg
+red: blob 10 mm2, 2.8 mm wide -> satin-style fill at 83 deg
+red: blob 10 mm2, 2.8 mm wide -> satin-style fill at 83 deg
+red: blob 10 mm2, 2.7 mm wide -> satin-style fill at 72 deg
+red: blob 10 mm2, 2.7 mm wide -> satin-style fill at 72 deg
+red: blob 9 mm2, 2.6 mm wide -> satin-style fill at 99 deg
+red: blob 9 mm2, 2.6 mm wide -> satin-style fill at 99 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 62 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 62 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 94 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 94 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 79 deg
+red: blob 9 mm2, 3.0 mm wide -> satin-style fill at 79 deg
+red: blob 7 mm2, 2.3 mm wide -> satin-style fill at 90 deg
+red: blob 7 mm2, 2.3 mm wide -> satin-style fill at 90 deg
+red: blob 7 mm2, 2.5 mm wide -> satin-style fill at 90 deg
+red: blob 7 mm2, 2.5 mm wide -> satin-style fill at 90 deg
+red: blob 6 mm2, 2.4 mm wide -> satin-style fill at 71 deg
+red: blob 6 mm2, 2.4 mm wide -> satin-style fill at 71 deg
+red: blob 3 mm2, 1.7 mm wide -> satin-style fill at 88 deg
+red: blob 3 mm2, 1.7 mm wide -> satin-style fill at 88 deg
+black: 130 feature(s) between 1.0 and 1.5 mm wide (660.1 mm2) thickened to 1.5 mm and stitched as satin
+black: 2043 thin line(s) in 185 piece(s) (2616.2 mm2, mean width 0.66 mm) -> running/bean stitch
+black: satin 2.4 mm wide x 239 mm, 31 branch(es)
+black: satin 2.4 mm wide x 239 mm, 31 branch(es)
+black: satin 2.2 mm wide x 242 mm, 29 branch(es)
+black: satin 2.2 mm wide x 242 mm, 29 branch(es)
+black: satin 2.2 mm wide x 242 mm, 44 branch(es)
+black: satin 2.2 mm wide x 242 mm, 44 branch(es)
+black: satin 2.3 mm wide x 209 mm, 21 branch(es)
+black: satin 2.3 mm wide x 209 mm, 21 branch(es)
+black: blob 16 mm2, 3.4 mm wide -> satin-style fill at 6 deg
+black: blob 16 mm2, 3.4 mm wide -> satin-style fill at 6 deg
+black: blob 12 mm2, 3.0 mm wide -> satin-style fill at 59 deg
+black: blob 12 mm2, 3.0 mm wide -> satin-style fill at 59 deg
+black: blob 10 mm2, 2.6 mm wide -> satin-style fill at 2 deg
+black: blob 10 mm2, 2.6 mm wide -> satin-style fill at 2 deg
+black: blob 9 mm2, 2.6 mm wide -> satin-style fill at 46 deg
+black: blob 9 mm2, 2.6 mm wide -> satin-style fill at 46 deg
+black: blob 6 mm2, 2.2 mm wide -> satin-style fill at 94 deg
+black: blob 6 mm2, 2.2 mm wide -> satin-style fill at 94 deg
+black: blob 4 mm2, 1.9 mm wide -> satin-style fill at 167 deg
+black: blob 4 mm2, 1.9 mm wide -> satin-style fill at 167 deg
+black: blob 4 mm2, 2.0 mm wide -> satin-style fill at 120 deg
+black: blob 4 mm2, 2.0 mm wide -> satin-style fill at 111 deg
+black: blob 4 mm2, 2.0 mm wide -> satin-style fill at 89 deg
+black: blob 4 mm2, 2.0 mm wide -> satin-style fill at 88 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 92 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 92 deg
+black: blob 3 mm2, 1.6 mm wide -> satin-style fill at 4 deg
+black: blob 3 mm2, 1.6 mm wide -> satin-style fill at 4 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 10 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 10 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 102 deg
+black: blob 3 mm2, 1.7 mm wide -> satin-style fill at 102 deg
+black: blob 2 mm2, 1.6 mm wide -> satin-style fill at 55 deg
+black: blob 2 mm2, 1.6 mm wide -> satin-style fill at 55 deg
+black: blob 2 mm2, 1.6 mm wide -> satin-style fill at 76 deg
+black: blob 2 mm2, 1.6 mm wide -> satin-style fill at 76 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 35 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 35 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 91 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 91 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 149 deg
+black: blob 2 mm2, 1.5 mm wide -> satin-style fill at 153 deg
+olive: 9 uncovered patch(es) over 1.0 mm2 filled after the main objects
+olive: 6 mm of travel runs inside the fill; 8 mm of travel runs inside the fill
+olive: 10719 stitches, 148 jumps, 9 trims
+dark green: 5 uncovered patch(es) over 1.0 mm2 filled after the main objects
+dark green: 8174 stitches, 167 jumps, 6 trims
+royal blue: 3736 stitches, 6 jumps, 6 trims
+white: 5 uncovered patch(es) over 1.0 mm2 filled after the main objects
+white: 130 mm of travel runs inside the fill; 33 mm of travel runs inside the fill; 73 mm of travel runs inside the fill
+white: 6891 stitches, 42 jumps, 18 trims
+red: 2287 stitches, 50 jumps, 10 trims
+black: 16 uncovered patch(es) over 1.0 mm2 filled after the main objects
+black: 7 mm of travel runs inside the fill
+black: 25499 stitches, 103 jumps, 30 trims
+Re-centred the stitches on the hoop origin by (-0.09, 0.18) mm

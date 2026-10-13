@@ -209,8 +209,10 @@ def build_regions(doc: Document, groups: list[ColorGroup], member_to_group: dict
             continue
         wide = G.opening(raw, min_feature / 2.0)
         thin_fraction[g.name] = 1.0 - wide.area / raw.area
-        # perimeter^2 / (4 pi area): 1 for a disc, hundreds for line work; independent of the design size
-        line_ratio[g.name] = raw.length ** 2 / (4.0 * 3.141592653589793 * raw.area)
+        # area-weighted mean over connected pieces of perimeter^2 / (4 pi area): 1 for a disc,
+        # hundreds for line work; independent of the design size and of how many copies there are
+        pieces = G.polygons(raw)
+        line_ratio[g.name] = sum((pc.length ** 2 / (4.0 * 3.141592653589793 * pc.area)) * pc.area for pc in pieces) / raw.area
     outline_groups = {n for n in thin_fraction
                       if thin_fraction[n] >= 0.5 or (line_ratio[n] >= 500 and thin_fraction[n] >= 0.3)}
     for outline in list(outline_groups):
